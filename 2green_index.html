@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта Ижевска с маркерами</title>
+    
+    <!-- Подключаем Leaflet (OpenStreetMap) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            padding: 20px 25px;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header h1 {
+            color: #1a73e8;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #5f6368;
+            font-size: 14px;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+            background: #d9e2ec;
+        }
+
+        .footer {
+            padding: 15px 25px;
+            background: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+            font-size: 13px;
+            color: #5f6368;
+            text-align: center;
+        }
+
+        .controls {
+            padding: 15px 25px;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 8px 16px;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #1557b0;
+        }
+
+        @media (max-width: 768px) {
+            #map {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗺️ Достопримечательности Ижевска</h1>
+            <p>Нажмите на маркеры, чтобы увидеть информацию о месте</p>
+        </div>
+        
+        <div class="controls">
+            <button onclick="showAllMarkers()">Показать все маркеры</button>
+            <button onclick="centerOnIzhevsk()">Центрировать карту</button>
+        </div>
+        
+        <div id="map"></div>
+        
+        <div class="footer">
+            <span>📌 Красные маркеры — достопримечательности Ижевска | Карта: OpenStreetMap</span>
+        </div>
+    </div>
+
+    <!-- Подключаем наш файл с маркерами -->
+    <script src="2green_index.js"></script>
+</body>
+</html>
