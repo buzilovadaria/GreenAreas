@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Зеленые зоны Ижевска</title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU" type="text/javascript"></script>
+    <link rel="stylesheet" href="2green_style.css">
+</head>
+<body>
+    <div class="map-container">
+        <div class="map-header">
+            <h2>Зеленые зоны Ижевска</h2>
+            <p>Интерактивная карта с возможностью приближения и перетаскивания</p>
+        </div>
+
+        <div class="map-wrapper">
+            <div id="custom-map"></div>
+        </div>
+
+        <div class="map-footer">
+            <div class="address">
+                <span>📍 Ижевск, Удмуртия</span>
+            </div>
+            <div class="controls-note">
+                🖱️ Масштабируй | 📌 Тяни карту | 🔍 Кликай по маркерам
+            </div>
+        </div>
+    </div>
+
+    <script src="2green_index.js"></script>
+</body>
+</html>
