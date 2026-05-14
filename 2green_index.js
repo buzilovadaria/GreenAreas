@@ -263,7 +263,7 @@ const markersData = [
     },
     {
         id: 30,
-        coords: [56.91586851589016, 53.21453978980618],
+        coords: [56.873882, 53.274050],
         name: "Сосновый бор",
         description: "Целебный хвойный массив с чистым воздухом и вековыми соснами. На территории обустроены санаторные тропы для терренкура. Идеальное место для восстановления сил и прогулок в любую погоду.",
         category: "Бор",
@@ -308,7 +308,7 @@ const markersData = [
     },
     {
         id: 35,
-        coords: [56.5058, 53.1219],
+        coords: [56.848377, 53.204799],
         name: "Сквер у Свято-Михайловского собора",
         description: "Благоустроенная территория вокруг одного из красивейших храмов города. Цветники и газоны поддерживаются в идеальном порядке. Атмосфера умиротворения и покоя царит в этом святом месте.",
         category: "Сквер",
@@ -396,6 +396,345 @@ const markersData = [
         address: "Удмуртская Республика, г. Ижевск, ул. Ботаническая, 5",
         image: "images/sad-botanicheskiy.jpg"
     },
+{
+    id: 45,
+    coords: [56.852625, 53.294550],
+    name: "Экодом",
+    description: "Современный экоцентр, где принимают более 20 видов вторсырья: бумагу, пластик, стекло, металл, тетрапак, батарейки. Проводят мастер-классы по переработке и раздельному сбору отходов. Можно сдать редкие фракции и получить консультацию эколога.",
+    category: "Пункт приема вторсырья",
+    address: "Удмуртская Республика, г. Ижевск, ул. Молодёжная, 107А",
+    workingHours: "Ежедневно: 10:00 – 20:00",
+    image: "images/ecodom.png",
+    type: "recycle"
+},
+{
+    id: 46,
+    coords: [56.852770, 53.282285],
+    name: "Сквер желаний",
+    description: "Уютный сквер с арт-объектами и скамейками для отдыха. В центре установлено «дерево желаний», куда посетители привязывают ленточки с мечтами. Популярное место для фотосессий и романтических встреч.",
+    category: "Сквер",
+    address: "Удмуртская Республика, г. Ижевск, ул. 40 лет Победы, 76",
+    image: "images/skver-zhelaniy.png",
+    type: "green"
+},
+{
+    id: 47,
+    coords: [56.869568, 53.200078],
+    name: "ООО ИП «Спутник» им. Исаенко Е.М.",
+    description: "Промышленный пункт приема макулатуры и пластика. Принимают большие объемы вторсырья от организаций и населения. Работают по предварительному звонку для крупных партий.",
+    category: "Пункт приема вторсырья",
+    address: "Удмуртская Республика, г. Ижевск, ул. Карла Маркса, 437Е",
+    workingHours: "Пн-Пт: 08:00 – 17:00, Сб-Вс: выходной",
+    image: "images/sputnik.png",
+    type: "recycle"
+},
+{
+    id: 48,
+    coords: [56.853578, 53.210111],
+    name: "Березовый сквер",
+    description: "Небольшой уютный сквер с березами в центре города. Летом здесь работают фонтаны и проводятся городские ярмарки. Зимой устанавливают новогоднюю ёлку и ледовый городок.",
+    category: "Сквер",
+    address: "Удмуртская Республика, г. Ижевск, Центральная площадь",
+    image: "images/skver-berezoviy.png",
+    type: "green"
+},
+{
+    id: 49,
+    coords: [56.87239383964936, 53.192257928835296],
+    name: "Пункт приема макулатуры",
+    description: "Специализированный пункт приема макулатуры: газеты, журналы, офисная бумага, картон, книги. Принимают от 1 кг. При больших объемах возможен вывоз.",
+    category: "Пункт приема вторсырья",
+    address: "Удмуртская Республика, г. Ижевск, 8-й Подлесный пр., 8",
+    workingHours: "Пн-Пт: 09:00 – 18:00, Сб: 10:00 – 14:00, Вс: выходной",
+    image: "images/makulatura.png",
+    type: "recycle"
+},
+{
+    id: 50,
+    coords: [56.83328318471578, 53.183116628643965],
+    name: "Вторресурсы",
+    description: "Крупный пункт приема вторсырья: макулатура, пластик ПЭТ, полиэтилен, алюминиевые банки, стеклотара. Имеются весы для автомобилей. Работают с физическими и юридическими лицами.",
+    category: "Пункт приема вторсырья",
+    address: "Удмуртская Республика, г. Ижевск, ул. Маяковского, 45",
+    workingHours: "Пн-Сб: 08:00 – 19:00, Вс: 09:00 – 16:00",
+    image: "images/vtorresursy.png",
+    type: "recycle"
+},
+{
+    id: 51,
+    coords: [56.82517776268614, 53.15869559584355],
+    name: "Вторпроект",
+    description: "Пункт приема и сортировки вторсырья. Принимают до 30 видов отходов, включая редкие фракции: пенопласт, блистеры от таблеток, чеки. Проводят эко-акции и субботники.",
+    category: "Пункт приема вторсырья",
+    address: "Удмуртская Республика, г. Ижевск, ул. Саранская, 1А",
+    workingHours: "Вт-Сб: 10:00 – 19:00, Вс-Пн: выходной",
+    image: "images/vtorproekt.png",
+    type: "recycle"
+},
+{
+    id: 52,
+    coords: [56.8500, 53.2150],
+    name: "Точка сбора мусора",
+    description: "Круглосуточный пункт приема пластика и других видов вторсырья. Удобное расположение в центре города позволяет сдать отходы в любое время суток. Принимают пластиковые бутылки, полиэтилен, макулатуру.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, проспект Конструктора М.Т. Калашникова, 1",
+    workingHours: "Ежедневно, круглосуточно",
+    image: "images/tochka-sbora-kalashnikova.png",
+    type: "recycle"
+},
+{
+    id: 53,
+    coords: [56.8380, 53.1920],
+    name: "Единый оператор макулатуры",
+    description: "Специализированный пункт приема макулатуры и пластика. Принимают бумагу, картон, пластиковые бутылки, пленку. Есть возможность вывоза крупных партий. Работают как с населением, так и с организациями.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Голублева, 97",
+    workingHours: "Ежедневно: 09:00 – 19:00",
+    image: "images/ediniy-operator.png",
+    type: "recycle"
+},
+{
+    id: 54,
+    coords: [56.8680, 53.1910],
+    name: "Точка сбора мусора на Барамзиной",
+    description: "Еще один удобный пункт приема пластика с круглосуточным доступом. Можно сдать ПЭТ-бутылки, флаконы от бытовой химии, полиэтиленовые пакеты. Контейнеры расположены на охраняемой территории.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. имени Татьяны Барамзиной, 5А",
+    workingHours: "Ежедневно, круглосуточно",
+    image: "images/tochka-sbora-baramzinoy.png",
+    type: "recycle"
+},
+{
+    id: 55,
+    coords: [56.8450, 53.2050],
+    name: "Удмуртвторресурс",
+    description: "Крупная компания по приему и утилизации отходов. Принимают макулатуру, пластик, стекло, полиэтилен, отработанные масла. Работают по безналичному расчету с юридическими лицами и наличными с населением.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Карла Маркса, 130",
+    workingHours: "Пн-Чт: 08:30 – 17:30 (обед 12:00-13:00), Пт: 08:30 – 16:30 (обед 12:00-13:00)",
+    image: "images/udmurtvtorresurs.png",
+    type: "recycle"
+},
+{
+    id: 56,
+    coords: [56.8500, 53.2030],
+    name: "Чистый город на Ленина",
+    description: "Пункт приема вторсырья в центре Ижевска с удобным графиком работы. Принимают основные виды вторсырья: бумагу, картон, пластиковые бутылки. Предоставляют консультации по раздельному сбору отходов.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Ленина, 46",
+    workingHours: "Пн-Чт: 08:00 – 17:00, Пт: 08:00 – 16:00",
+    image: "images/chistiy-gorod-lenina.png",
+    type: "recycle"
+},
+{
+    id: 57,
+    coords: [56.8335, 53.1835],
+    name: "КамПласт",
+    description: "Предприятие по переработке пластиковых изделий. Принимают ПЭТ-бутылки, канистры, ящики, пленку ПВД и ПНД. Сотрудничают с крупными поставщиками и принимают малые партии от населения.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Маяковского, 20",
+    workingHours: "Пн-Пт: 09:00 – 18:00",
+    image: "images/kamplast.png",
+    type: "recycle"
+},
+{
+    id: 58,
+    coords: [56.8250, 53.1750],
+    name: "ИП Колпакова",
+    description: "Небольшой пункт приема вторсырья с удобным расположением. Принимают макулатуру, пластик, стекло. В субботу работают до обеда. При больших объемах возможен самовывоз.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Пойма, 14",
+    workingHours: "Пн-Пт: 08:00 – 17:00, Сб: 08:00 – 14:00",
+    image: "images/ip-kolpakova.png",
+    type: "recycle"
+},
+{
+    id: 59,
+    coords: [56.8240, 53.1780],
+    name: "ПолимирПак",
+    description: "Производственно-заготовительное предприятие. Принимают полиэтиленовую пленку, стретч-пленку, ПЭТ-бутылки. Отгружают вторсырье на перерабатывающие заводы. Индивидуальный подход к каждому клиенту.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Пойма, 37, корп. 3",
+    workingHours: "Пн-Пт: 08:00 – 17:00",
+    image: "images/polimirpak.png",
+    type: "recycle"
+},
+{
+    id: 60,
+    coords: [56.8245, 53.1760],
+    name: "Пластпак",
+    description: "Прием пластиковых отходов и одноразовой посуды для дальнейшей переработки. Сотрудничают с предприятиями общепита. Вывоз отходов собственным транспортом.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Пойма, 22, лит. Ж",
+    workingHours: "Пн-Чт: 09:00 – 17:00, Пт: 09:00 – 16:00",
+    image: "images/plastpak.png",
+    type: "recycle"
+},
+{
+    id: 61,
+    coords: [56.8550, 53.2400],
+    name: "Кировчермет",
+    description: "Крупный пункт приема металлолома и вторсырья. Принимают черный и цветной металл, макулатуру, пластик. Ежедневный режим работы с перерывом на обед. Взвешивание на электронных весах.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Чайковского, 69",
+    workingHours: "Ежедневно: 08:00 – 20:00 (перерыв 12:00-13:00)",
+    image: "images/kirovchermet.png",
+    type: "recycle"
+},
+{
+    id: 62,
+    coords: [56.8785, 53.1870],
+    name: "Приём вторсырья на Школьной",
+    description: "Удобный пункт приема в районе улицы Школьной. Принимают бумагу, картон, пластик, стекло. Приветливый персонал поможет разобраться с сортировкой. Есть программа лояльности.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, Школьная улица, 55А",
+    workingHours: "Пн-Пт: 10:00 – 19:00",
+    image: "images/priem-shkolnaya.png",
+    type: "recycle"
+},
+{
+    id: 63,
+    coords: [56.8700, 53.1650],
+    name: "Радиан",
+    description: "Предприятие по переработке пластиковых изделий. Принимают отходы пластика от населения и организаций. Строгий контроль качества принимаемого сырья. Оплата по факту сдачи.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, Автозаводская улица, 5В",
+    workingHours: "Пн-Пт: 08:30 – 17:30 (перерыв 12:00-13:00)",
+    image: "images/radian.png",
+    type: "recycle"
+},
+{
+    id: 64,
+    coords: [56.8650, 53.1680],
+    name: "Удмуртвторресурс на Воткинском",
+    description: "Дополнительный пункт приема компании на Воткинском шоссе. Удобен для жителей северной части города. Принимают все виды вторсырья: макулатуру, пластик, стекло, металл.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, Воткинское шоссе, 298",
+    workingHours: "Пн-Пт: 08:30 – 17:30",
+    image: "images/udmurtvtorresurs-votkinsk.png",
+    type: "recycle"
+},
+{
+    id: 65,
+    coords: [56.8640, 53.1700],
+    name: "Пункт приема электроники",
+    description: "Специализированный пункт приема старой электроники и бытовой техники. Принимают компьютеры, телефоны, телевизоры, мелкую бытовую технику. Безопасная утилизация с извлечением ценных компонентов.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, Воткинское шоссе, 58",
+    workingHours: "Пн-Пт: 10:00 – 19:00",
+    image: "images/priem-electroniki.png",
+    type: "recycle"
+},
+{
+    id: 66,
+    coords: [56.8490, 53.2140],
+    name: "Точка сбора мусора на Калашникова 7",
+    description: "Еще один круглосуточный пункт в районе проспекта Калашникова. Удобно совмещать со сдачей в соседние пункты. Принимают пластик и макулатуру в режиме 24/7.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, проспект Конструктора М.Т. Калашникова, 7",
+    workingHours: "Ежедневно, круглосуточно",
+    image: "images/tochka-sbora-kalashnikova-7.png",
+    type: "recycle"
+},
+{
+    id: 67,
+    coords: [56.8615, 53.2095],
+    name: "Спецавтохозяйство",
+    description: "Региональный оператор по обращению с ТКО. Осуществляют прием вторсырья от населения. Можно сдать пластик, макулатуру, стекло. Информируют о правилах раздельного сбора.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, Пушкинская улица, 268",
+    workingHours: "Пн-Чт: 08:00 – 17:00 (перерыв 12:00-13:00)",
+    image: "images/specavtohozyaystvo.png",
+    type: "recycle"
+},
+{
+    id: 68,
+    coords: [56.8620, 53.2100],
+    name: "Профит-Удмуртия",
+    description: "Пункт приема макулатуры и пластика. Работают с крупными и мелкими поставщиками. Быстрое оформление документов для юридических лиц. Принимают архивные документы на утилизацию.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, Пушкинская улица, 270",
+    workingHours: "Пн-Пт: 08:30 – 17:30",
+    image: "images/profit-udmurtia.png",
+    type: "recycle"
+},
+{
+    id: 69,
+    coords: [56.8340, 53.1550],
+    name: "СанПластАвто",
+    description: "Прием пластиковых отходов от населения и предприятий. Специализируются на автомобильном пластике: бамперы, детали салона. Также принимают бытовой пластик.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, Телегина улица, 45",
+    workingHours: "Пн-Пт: 08:00 – 17:00",
+    image: "images/sanplastavto.png",
+    type: "recycle"
+},
+{
+    id: 70,
+    coords: [56.8600, 53.2800],
+    name: "ТатЛом",
+    description: "Пункт приема металлолома и вторсырья. Принимают черный металл, цветной металл, аккумуляторы. Также берут макулатуру и пластик. Удобное расположение в Индустриальном районе.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Гагарина, 100",
+    workingHours: "Пн-Пт: 08:30 – 18:00, Сб: 08:30 – 15:00",
+    image: "images/tatlom.png",
+    type: "recycle"
+},
+{
+    id: 71,
+    coords: [56.8255, 53.1775],
+    name: "Вторсырье на Пойме",
+    description: "Пункт приема и скупки вторсырья. Принимают макулатуру, пластик, металлолом. Честные весы и быстрый расчет на месте. Работают с физическими и юридическими лицами.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Пойма, 19Ж",
+    workingHours: "Пн-Пт: 08:00 – 17:00",
+    image: "images/vtorsyrie-poyma.png",
+    type: "recycle"
+},
+{
+    id: 72,
+    coords: [56.8230, 53.1790],
+    name: "Единый оператор макулатуры на Пойме",
+    description: "Дополнительный офис компании для приема макулатуры и пластика. Принимают бумагу, картон, тетрапак. Оплата наличными и на карту. Возможен вывоз больших объемов.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Пойма, 33А",
+    workingHours: "Пн-Сб: 08:00 – 17:00",
+    image: "images/ediniy-operator-poyma.png",
+    type: "recycle"
+},
+{
+    id: 73,
+    coords: [56.8370, 53.1910],
+    name: "ЛомовЪ",
+    description: "Пункт приема металлолома и вторсырья. Принимают черный и цветной металл, аккумуляторы, алюминиевые банки. Оплата наличными, картой, банковским переводом.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Голублева, 6",
+    workingHours: "Ежедневно: 08:00 – 18:00",
+    image: "images/lomov.png",
+    type: "recycle"
+},
+{
+    id: 74,
+    coords: [56.8520, 53.2050],
+    name: "Пункт раздельного сбора отходов (Центр)",
+    description: "Круглосуточный контейнер для раздельного сбора в центре города. Удобное расположение рядом с остановками общественного транспорта. Принимают пластик, стекло, макулатуру.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, мкр-н Центр, Первомайский район",
+    workingHours: "Ежедневно, круглосуточно",
+    image: "images/razdelniy-sbor-centr.png",
+    type: "recycle"
+},
+{
+    id: 75,
+    coords: [56.8252, 53.1590],
+    name: "Вторпроект (основной)",
+    description: "Основной офис компании Вторпроект. Принимают до 30 видов вторсырья, включая редкие фракции: пенопласт, блистеры, чеки. Проводят экологические акции и субботники.",
+    category: "Пункт приема вторсырья",
+    address: "г. Ижевск, ул. Саранская, 1А, корп. 2",
+    workingHours: "Пн-Пт: 08:00 – 18:00",
+    image: "images/vtorproekt-osnovnoy.png",
+    type: "recycle"
+},
     
 ];
 
@@ -410,43 +749,84 @@ ymaps.ready(function() {
         controls: ['zoomControl', 'fullscreenControl']
     });
 
-    // Добавляем маркеры с зелеными иконками и большими окнами
+    // Добавляем маркеры
 markersData.forEach(function(marker) {
+    // Определяем тип маркера
+    let markerPreset, markerColor, iconEmoji, categoryColor, categoryBg;
+    
+    if (marker.type === "recycle") {
+        markerPreset = 'islands#blueIcon';
+        markerColor = '#2563eb';
+        iconEmoji = '♻️';
+        categoryColor = '#1e40af';
+        categoryBg = '#eff6ff';
+    } else {
+        markerPreset = 'islands#greenIcon';
+        markerColor = '#22c55e';
+        iconEmoji = '🌳';
+        categoryColor = '#166534';
+        categoryBg = '#f0fdf4';
+    }
+    
+    // Формируем блок с режимом работы
+    let workingHoursHTML = '';
+    if (marker.workingHours) {
+        workingHoursHTML = `
+            <div style="margin-bottom: 12px; background: #eff6ff; padding: 10px 15px; border-radius: 10px; border-left: 4px solid #3b82f6;">
+                <strong style="font-size: 15px; color: #1e40af;">🕐 Режим работы:</strong><br>
+                <span style="font-size: 14px; color: #333; margin-left: 5px;">${marker.workingHours}</span>
+            </div>
+        `;
+    }
+    
+    // Формируем блок с описанием (только если есть)
+    let descriptionHTML = '';
+    if (marker.description) {
+        descriptionHTML = `
+            <div style="margin-bottom: 15px; background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                <strong style="font-size: 16px; color: #166534;">📝 Описание:</strong>
+                <p style="margin-top: 8px; text-indent: 15px; color: #444; font-size: 14px;">${marker.description}</p>
+            </div>
+        `;
+    }
+    
+    // Формируем блок с изображением (только если есть)
+    let imageHTML = '';
+    if (marker.image) {
+        imageHTML = `
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="${marker.image}" 
+                     alt="${marker.name}" 
+                     style="max-width: 100%; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"
+                     onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p style=color:#999;font-style:italic;padding:20px;background:#f5f5f5;border-radius:10px;>📷 Изображение отсутствует</p>');">
+            </div>
+        `;
+    }
+    
     const placemark = new ymaps.Placemark(marker.coords, {
         balloonContentHeader: `
-            <div style="font-size: 20px; font-weight: bold; color: #2d6a4f; margin-bottom: 12px; text-align: center;">
-                🌳 ${marker.name}
+            <div style="font-size: 20px; font-weight: bold; color: ${categoryColor}; margin-bottom: 12px; text-align: center;">
+                ${iconEmoji} ${marker.name}
             </div>
         `,
         balloonContentBody: `
             <div style="font-size: 15px; line-height: 1.7; color: #333;">
-                <!-- 1. КАРТИНКА СРАЗУ ПОСЛЕ НАЗВАНИЯ -->
-                <div style="text-align: center; margin-bottom: 20px;">
-                    <img src="${marker.image}" 
-                         alt="${marker.name}" 
-                         style="max-width: 100%; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"
-                         onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p style=color:#999;font-style:italic;padding:20px;background:#f5f5f5;border-radius:10px;>📷 Изображение отсутствует</p>');">
-                </div>
+                ${imageHTML}
                 
-                <!-- 2. ОПИСАНИЕ -->
-                <div style="margin-bottom: 15px; background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
-                    <strong style="font-size: 16px; color: #166534;">📝 Описание:</strong>
-                    <p style="margin-top: 8px; text-indent: 15px; color: #444; font-size: 14px;">${marker.description}</p>
-                </div>
+                ${descriptionHTML}
                 
-                <!-- 3. КАТЕГОРИЯ -->
-                <div style="margin-bottom: 12px; background: #f0fdf4; padding: 10px 15px; border-radius: 10px; border-left: 4px solid #22c55e;">
-                    <strong style="font-size: 15px; color: #166534;">📍 Категория:</strong> 
+                <div style="margin-bottom: 12px; background: ${categoryBg}; padding: 10px 15px; border-radius: 10px; border-left: 4px solid ${markerColor};">
+                    <strong style="font-size: 15px; color: ${categoryColor};">📍 Категория:</strong> 
                     <span style="font-size: 15px; color: #333;">${marker.category}</span>
                 </div>
                 
-                <!-- 4. АДРЕС -->
-                <div style="margin-bottom: 12px; background: #f8fafc; padding: 10px 15px; border-radius: 10px; border-left: 4px solid #3b82f6;">
-                    <strong style="font-size: 15px; color: #1e40af;">🏠 Адрес:</strong><br>
+                ${workingHoursHTML}
+                
+                <div style="margin-bottom: 12px; background: #f8fafc; padding: 10px 15px; border-radius: 10px; border-left: 4px solid #8b5cf6;">
+                    <strong style="font-size: 15px; color: #6d28d9;">🏠 Адрес:</strong><br>
                     <span style="font-size: 14px; color: #555; margin-left: 5px;">${marker.address}</span>
                 </div>
                 
-                <!-- 5. КООРДИНАТЫ -->
                 <div style="background: #f8fafc; padding: 10px 15px; border-radius: 10px; border-left: 4px solid #f59e0b;">
                     <strong style="font-size: 15px; color: #92400e;">🌐 Координаты:</strong><br>
                     <span style="font-size: 14px; color: #555; margin-left: 5px;">${marker.coords[0].toFixed(6)}, ${marker.coords[1].toFixed(6)}</span>
@@ -455,14 +835,13 @@ markersData.forEach(function(marker) {
         `,
         balloonContentFooter: `
             <div style="font-size: 12px; color: #999; text-align: right; margin-top: 15px; border-top: 1px solid #e5e7eb; padding-top: 10px;">
-                ID объекта: ${marker.id} | Открыто для посещения
+                ID объекта: ${marker.id} | ${marker.type === 'recycle' ? 'Пункт приема вторсырья' : 'Открыто для посещения'}
             </div>
         `,
-        hintContent: `🌿 ${marker.name}`
+        hintContent: `${iconEmoji} ${marker.name}`
     }, {
-        // Зеленая иконка маркера
-        preset: 'islands#greenIcon',
-        iconColor: '#22c55e',
+        preset: markerPreset,
+        iconColor: markerColor,
         openBalloonOnClick: true
     });
     
@@ -479,4 +858,4 @@ markersData.forEach(function(marker) {
     console.log('🎨 Цвет маркеров: зеленый');
     console.log('📏 Размер окон: увеличенный');
     console.log('📁 Изображения загружаются из папки /images/');
-});
+}); 
