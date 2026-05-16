@@ -414,7 +414,7 @@ const markersData = [
     description: "Уютный сквер с арт-объектами и скамейками для отдыха. В центре установлено «дерево желаний», куда посетители привязывают ленточки с мечтами. Популярное место для фотосессий и романтических встреч.",
     category: "Сквер",
     address: "Удмуртская Республика, г. Ижевск, ул. 40 лет Победы, 76",
-    image: "images/skver-zhelaniy.png",
+    image: "images/skver-zhelaniy.webp",
     type: "green"
 },
 {
@@ -435,7 +435,7 @@ const markersData = [
     description: "Небольшой уютный сквер с березами в центре города. Летом здесь работают фонтаны и проводятся городские ярмарки. Зимой устанавливают новогоднюю ёлку и ледовый городок.",
     category: "Сквер",
     address: "Удмуртская Республика, г. Ижевск, Центральная площадь",
-    image: "images/skver-berezoviy.png",
+    image: "images/skver-berezoviy.webp",
     type: "green"
 },
 {
@@ -790,18 +790,18 @@ markersData.forEach(function(marker) {
         `;
     }
     
-    // Формируем блок с изображением (только если есть)
-    let imageHTML = '';
-    if (marker.image) {
-        imageHTML = `
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="${marker.image}" 
-                     alt="${marker.name}" 
-                     style="max-width: 100%; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"
-                     onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p style=color:#999;font-style:italic;padding:20px;background:#f5f5f5;border-radius:10px;>📷 Изображение отсутствует</p>');">
-            </div>
-        `;
-    }
+    // Формируем блок с изображением (только для зеленых зон)
+let imageHTML = '';
+if (marker.image && marker.type !== 'recycle') {
+    imageHTML = `
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="${marker.image}" 
+                 alt="${marker.name}" 
+                 style="max-width: 100%; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"
+                 onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<p style=color:#999;font-style:italic;padding:20px;background:#f5f5f5;border-radius:10px;>📷 Изображение отсутствует</p>');">
+        </div>
+    `;
+}
     
     const placemark = new ymaps.Placemark(marker.coords, {
         balloonContentHeader: `
