@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Зеленые зоны Ижевска - Сохраним природу вместе</title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU&quot; type="text/javascript"></script>
+    <link rel="stylesheet" href="deepstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Главный контейнер с фоновым геометрическим принтом -->
+    <div class="site-wrapper">
+        <div class="geometric-bg"></div>
+        
+        <div class="content-container">
+            <!-- ШАПКА САЙТА -->
+            <header class="main-header">
+                <div class="header-content">
+                    <h1 class="site-title">🌿 Зеленые зоны Ижевска</h1>
+                    <p class="site-subtitle">Откройте для себя оазисы природы в сердце города</p>
+                </div>
+            </header>
+
+            <!-- КРАТКИЙ ТЕКСТ О ВАЖНОСТИ ПРИРОДЫ -->
+            <section class="nature-importance">
+                <div class="importance-card">
+                    <div class="importance-icon">🌍</div>
+                    <h3>Природа в городе — наше общее будущее</h3>
+                    <p>Зеленые зоны Ижевска — это не просто места для прогулок. Это легкие нашего города, которые очищают воздух, снижают шум, создают комфортный микроклимат и дарят нам возможность отдыхать, не выезжая за пределы города. Сохраняя парки, скверы и бульвары, мы заботимся о своем здоровье и будущем следующих поколений. Каждое дерево — это вклад в чистый воздух, которым мы дышим каждый день.</p>
+                </div>
+            </section>
+
+            <!-- ИНТЕРАКТИВНАЯ КАРТА (БЕЗ ИЗМЕНЕНИЙ) -->
+            <div class="map-container">
+                <div class="map-header">
+                    <h2>🗺️ Исследуйте зеленые зоны на карте</h2>
+                    <p>Нажмите на маркер, чтобы узнать подробности</p>
+                </div>
+                <div class="map-wrapper">
+                    <div id="custom-map"></div>
+                </div>
+                <div class="map-footer">
+                    <div class="address">
+                        <span>📍 Ижевск, Удмуртия</span>
+                    </div>
+                    <div class="controls-note">
+                        🖱️ Масштабируй | 📌 Тяни карту | 🔍 Кликай по маркерам
+                    </div>
+                </div>
+            </div>
+
+            <!-- КАЛЬКУЛЯТОР ВТОРСЫРЬЯ -->
+            <section class="recycle-calculator">
+                <div class="section-header">
+                    <div class="section-icon">♻️</div>
+                    <h2 class="section-title">Калькулятор дохода от вторсырья</h2>
+                    <p class="section-subtitle">Узнайте, сколько вы можете заработать, сдавая отходы на переработку</p>
+                </div>
+                
+                <div class="calculator-container">
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="material-icon">📄</span> Макулатура (кг)
+                            </label>
+                            <input type="number" id="paper-kg" class="calc-input" value="0" min="0" step="1">
+                            <div class="price-hint">~ 5 ₽/кг</div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="material-icon">🥤</span> ПЭТ-бутылки (кг)
+                            </label>
+                            <input type="number" id="pet-kg" class="calc-input" value="0" min="0" step="1">
+                            <div class="price-hint">~ 15 ₽/кг</div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="material-icon">🥫</span> Алюминиевые банки (кг)
+                            </label>
+                            <input type="number" id="aluminum-kg" class="calc-input" value="0" min="0" step="1">
+                            <div class="price-hint">~ 40 ₽/кг</div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="material-icon">🔋</span> Батарейки (шт.)
+                            </label>
+                            <input type="number" id="batteries-pcs" class="calc-input" value="0" min="0" step="1">
+                            <div class="price-hint">~ 0.5 ₽/шт.</div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">
+                                <span class="material-icon">🥛</span> Стекло (кг)
+                            </label>
+                            <input type="number" id="glass-kg" class="calc-input" value="0" min="0" step="1">
+                            <div class="price-hint">~ 3 ₽/кг</div>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-result">
+                        <div class="result-amount">
+                            <span class="result-label">💰 Возможный доход:</span>
+                            <span class="result-value" id="total-amount">0</span>
+                            <span class="result-currency">₽</span>
+                        </div>
+                        <div class="eco-impact" id="eco-impact">
+                            🌱 Вы сохраните природу, сдав отходы на переработку!
+                        </div>
+                        <button class="reset-btn" id="reset-calc">🔄 Очистить</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- КАРТОЧКИ ПОПУЛЯРНЫХ ЗОН -->
+            <section class="popular-zones">
+                <div class="section-header">
+                    <div class="section-icon">⭐</div>
+                    <h2 class="section-title">Самые популярные зеленые зоны</h2>
+                    <p class="section-subtitle">Места, которые любят жители Ижевска</p>
+                </div>
+                
+                <div class="cards-container" id="popular-cards">
+                    <!-- Карточки будут добавлены через JavaScript -->
+                </div>
+            </section>
+
+            <!-- ИНТЕРАКТИВНЫЙ БЛОК ЭКО-СОВЕТ ДНЯ -->
+            <section class="eco-tip">
+                <div class="section-header">
+                    <div class="section-icon">💡</div>
+                    <h2 class="section-title">Эко-совет дня</h2>
+                    <p class="section-subtitle">Маленькие шаги к большой экологии</p>
+                </div>
+                
+                <div class="tip-container" id="eco-tip-container">
+                    <div class="tip-icon">🌿</div>
+                    <div class="tip-content" id="tip-text">
+                        Загружаем совет дня...
+                    </div>
+                    <button class="tip-refresh" id="refresh-tip">🔄 Другой совет</button>
+                </div>
+            </section>
+
+            <!-- ФУТЕР -->
+            <footer class="main-footer">
+                <div class="footer-content">
+                    <div class="footer-quote">
+                        🌱 «Природа — это не то, что мы унаследовали от предков, 
+                        а то, что мы взяли в долг у потомков»
+                    </div>
+                    <div class="footer-copyright">
+                        © 2026 Зеленые зоны Ижевска | Сохраним природу вместе
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+    <script src="deepindex.js"></script>
+</body>
+</html>
