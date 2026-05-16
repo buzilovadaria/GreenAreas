@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Калькулятор и Эко-справочник</title>
+    <link rel="stylesheet" href="3green_style.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="main-nav">
+        <a href="index.html" class="nav-link">🗺️ Карта</a>
+        <a href="calculator.html" class="nav-link active">♻️ Калькулятор и справочник</a>
+    </nav>
+
+    <!-- Калькулятор -->
+    <div class="calculator-container">
+        <div class="calc-header">
+            <h2>♻️ Калькулятор заработка на вторсырье</h2>
+            <p>Узнайте, сколько можно заработать на сдаче отходов</p>
+        </div>
+        
+        <div class="calc-body">
+            <div class="calc-item">
+                <label>📦 Макулатура (кг):</label>
+                <input type="number" id="paper" min="0" value="0" placeholder="0">
+                <span class="price">≈ 6-12 ₽/кг</span>
+            </div>
+            
+            <div class="calc-item">
+                <label>🧴 Пластик ПЭТ (кг):</label>
+                <input type="number" id="plastic" min="0" value="0" placeholder="0">
+                <span class="price">≈ 15-25 ₽/кг</span>
+            </div>
+            
+            <div class="calc-item">
+                <label>🥫 Алюминиевые банки (кг):</label>
+                <input type="number" id="aluminum" min="0" value="0" placeholder="0">
+                <span class="price">≈ 50-80 ₽/кг</span>
+            </div>
+            
+            <div class="calc-item">
+                <label>🪟 Стекло (кг):</label>
+                <input type="number" id="glass" min="0" value="0" placeholder="0">
+                <span class="price">≈ 1-3 ₽/кг</span>
+            </div>
+            
+            <button onclick="calculateEarnings()">💰 Рассчитать заработок</button>
+            
+            <div class="calc-result" id="result" style="display:none;">
+                <h3>💵 Ваш заработок:</h3>
+                <p id="minEarnings"></p>
+                <p id="maxEarnings"></p>
+                <p id="recommendation"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Эко-справочник -->
+    <div class="eco-guide">
+        <div class="guide-header">
+            <h2>📚 Эко-справочник</h2>
+            <p>Как правильно подготовить и сдать вторсырье на переработку</p>
+        </div>
+        
+        <!-- Табы -->
+        <div class="guide-tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'preparation')">🧹 Подготовка</button>
+            <button class="tab-btn" onclick="openTab(event, 'materials')">📦 Материалы</button>
+            <button class="tab-btn" onclick="openTab(event, 'rules')">✅ Правила</button>
+            <button class="tab-btn" onclick="openTab(event, 'mistakes')">❌ Ошибки</button>
+        </div>
+        
+        <!-- Содержимое табов -->
+        <div id="preparation" class="tab-content active">
+            <h3>🧹 Как подготовить вторсырье к сдаче</h3>
+            <div class="guide-steps">
+                <div class="step-card">
+                    <span class="step-number">1</span>
+                    <h4>Очистите от остатков</h4>
+                    <p>Промойте тару от остатков пищи и жидкостей. Грязное вторсырье могут не принять или снизить цену.</p>
+                    <ul>
+                        <li>🧴 Пластик: сполоснуть, удалить этикетки</li>
+                        <li>🥫 Банки: промыть, снять крышки</li>
+                        <li>🪟 Стекло: вымыть, удалить пробки</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <span class="step-number">2</span>
+                    <h4>Высушите</h4>
+                    <p>Мокрое сырье плесневеет и теряет в качестве. Разложите на просушку или протрите.</p>
+                </div>
+                
+                <div class="step-card">
+                    <span class="step-number">3</span>
+                    <h4>Спрессуйте/Сомните</h4>
+                    <p>Уменьшите объем для удобства транспортировки:</p>
+                    <ul>
+                        <li>📦 Коробки: сложите</li>
+                        <li>🧴 Бутылки: сомните</li>
+                        <li>🥫 Банки: спрессуйте</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <span class="step-number">4</span>
+                    <h4>Рассортируйте по видам</h4>
+                    <p>Разные материалы сдаются отдельно. Не смешивайте в одном пакете!</p>
+                    <ul>
+                        <li>📄 Бумага и картон</li>
+                        <li>🧴 Пластик по маркировке</li>
+                        <li>🥫 Металл</li>
+                        <li>🪟 Стекло по цвету</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <span class="step-number">5</span>
+                    <h4>Упакуйте удобно</h4>
+                    <p>Свяжите макулатуру в пачки, пластик сложите в мешки, стекло — в коробки.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="materials" class="tab-content">
+            <h3>📦 Что принимают на переработку</h3>
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div class="material-icon">📄</div>
+                    <h4>Макулатура</h4>
+                    <div class="acceptable-list">
+                        <span class="tag green">✅ Газеты, журналы</span>
+                        <span class="tag green">✅ Офисная бумага</span>
+                        <span class="tag green">✅ Картон, коробки</span>
+                        <span class="tag green">✅ Книги (без обложек)</span>
+                    </div>
+                    <div class="unacceptable-list">
+                        <span class="tag red">❌ Чеки, салфетки</span>
+                        <span class="tag red">❌ Обои, ламинат</span>
+                        <span class="tag red">❌ Грязная упаковка</span>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">🧴</div>
+                    <h4>Пластик</h4>
+                    <div class="acceptable-list">
+                        <span class="tag green">✅ ПЭТ-бутылки (①)</span>
+                        <span class="tag green">✅ HDPE-канистры (②)</span>
+                        <span class="tag green">✅ Пакеты ПВД (④)</span>
+                        <span class="tag green">✅ PP-контейнеры (⑤)</span>
+                    </div>
+                    <div class="unacceptable-list">
+                        <span class="tag red">❌ Пластик ③, ⑥, ⑦</span>
+                        <span class="tag red">❌ Тюбики от кремов</span>
+                        <span class="tag red">❌ Одноразовая посуда</span>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">🥫</div>
+                    <h4>Металл</h4>
+                    <div class="acceptable-list">
+                        <span class="tag green">✅ Алюминиевые банки</span>
+                        <span class="tag green">✅ Консервные банки</span>
+                        <span class="tag green">✅ Крышки, пробки</span>
+                        <span class="tag green">✅ Фольга (чистая)</span>
+                    </div>
+                    <div class="unacceptable-list">
+                        <span class="tag red">❌ Баллончики аэрозолей</span>
+                        <span class="tag red">❌ Грязная фольга</span>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">🪟</div>
+                    <h4>Стекло</h4>
+                    <div class="acceptable-list">
+                        <span class="tag green">✅ Бутылки, банки</span>
+                        <span class="tag green">✅ Стеклобой</span>
+                        <span class="tag green">✅ Пузырьки</span>
+                    </div>
+                    <div class="unacceptable-list">
+                        <span class="tag red">❌ Оконное стекло</span>
+                        <span class="tag red">❌ Зеркала</span>
+                        <span class="tag red">❌ Лампочки</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="rules" class="tab-content">
+            <h3>✅ Золотые правила сдачи вторсырья</h3>
+            <div class="rules-list">
+                <div class="rule-item">
+                    <span class="rule-icon">1️⃣</span>
+                    <p>Сдавайте только то, что принимают в вашем пункте приема</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">2️⃣</span>
+                    <p>Предварительно звоните для уточнения цен и графика работы</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">3️⃣</span>
+                    <p>Сортируйте дома: заведите 3-4 контейнера для разных видов</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">4️⃣</span>
+                    <p>Не копите слишком долго: раз в месяц отвозите накопленное</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">5️⃣</span>
+                    <p>Следите за акциями: некоторые пункты повышают цены</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mistakes" class="tab-content">
+            <h3>❌ Частые ошибки при сдаче вторсырья</h3>
+            <div class="mistakes-grid">
+                <div class="mistake-card">
+                    <span class="mistake-icon">🚫</span>
+                    <h4>Грязное сырье</h4>
+                    <p>Остатки еды портят всю партию. Мойте тару!</p>
+                </div>
+                <div class="mistake-card">
+                    <span class="mistake-icon">🚫</span>
+                    <h4>Смешанный пластик</h4>
+                    <p>Разные маркировки несовместимы. Сортируйте!</p>
+                </div>
+                <div class="mistake-card">
+                    <span class="mistake-icon">🚫</span>
+                    <h4>Чеки и салфетки</h4>
+                    <p>Термобумага не перерабатывается. Выбрасывайте в мусор.</p>
+                </div>
+                <div class="mistake-card">
+                    <span class="mistake-icon">🚫</span>
+                    <h4>Неснятые крышки</h4>
+                    <p>Крышки часто из другого пластика. Снимайте отдельно.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="3green_index.js"></script>
+</body>
+</html>

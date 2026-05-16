@@ -1,0 +1,534 @@
+/* ==================== БАЗОВЫЕ СТИЛИ ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif;
+    background: #eef2f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ==================== НАВИГАЦИЯ ==================== */
+.main-nav {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    padding: 12px 24px;
+    background: white;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #4a627a;
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.nav-link.active {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+}
+
+/* ==================== КАЛЬКУЛЯТОР ==================== */
+.calculator-container {
+    max-width: 1200px;
+    width: 100%;
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.calc-header {
+    padding: 28px 28px 8px 28px;
+}
+
+.calc-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e2a3e;
+}
+
+.calc-header p {
+    color: #4a627a;
+    margin-top: 8px;
+    font-size: 0.95rem;
+}
+
+.calc-body {
+    padding: 20px 28px 28px 28px;
+}
+
+.calc-item {
+    margin-bottom: 20px;
+}
+
+.calc-item label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1e3a8a;
+    font-size: 1rem;
+}
+
+.calc-item input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: #f8fafc;
+}
+
+.calc-item input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.calc-item input:hover {
+    border-color: #94a3b8;
+}
+
+.price {
+    display: inline-block;
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 0.85rem;
+    background: #f1f5f9;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.calc-body button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s;
+    letter-spacing: 0.3px;
+}
+
+.calc-body button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+.calc-body button:active {
+    transform: translateY(0);
+}
+
+.calc-result {
+    margin-top: 24px;
+    padding: 24px;
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-radius: 16px;
+    border: 2px solid #86efac;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.calc-result h3 {
+    color: #166534;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.calc-result p {
+    font-size: 16px;
+    color: #333;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.calc-result strong {
+    color: #15803d;
+    font-size: 1.1em;
+}
+
+/* ==================== ЭКО-СПРАВОЧНИК ==================== */
+.eco-guide {
+    max-width: 1200px;
+    width: 100%;
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.guide-header {
+    padding: 28px 28px 8px 28px;
+}
+
+.guide-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1e2a3e;
+}
+
+.guide-header p {
+    color: #4a627a;
+    margin-top: 8px;
+    font-size: 0.95rem;
+}
+
+/* Табы */
+.guide-tabs {
+    display: flex;
+    gap: 10px;
+    padding: 20px 28px;
+    border-bottom: 2px solid #e2e8f0;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: 2px solid #e2e8f0;
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    border-color: #22c55e;
+    color: #22c55e;
+    background: #f0fdf4;
+}
+
+.tab-btn.active {
+    background: #22c55e;
+    color: white;
+    border-color: #22c55e;
+}
+
+/* Содержимое табов */
+.tab-content {
+    display: none;
+    padding: 24px 28px;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h3 {
+    font-size: 1.4rem;
+    color: #166534;
+    margin-bottom: 24px;
+}
+
+/* Шаги подготовки */
+.guide-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.step-card {
+    background: #f8fafc;
+    padding: 28px 24px 24px 24px;
+    border-radius: 16px;
+    border: 2px solid #e2e8f0;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    border-color: #22c55e;
+}
+
+.step-number {
+    position: absolute;
+    top: -18px;
+    left: -18px;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.step-card h4 {
+    margin: 5px 0 12px 0;
+    color: #1e3a8a;
+    font-size: 1.1rem;
+}
+
+.step-card p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.step-card ul {
+    padding-left: 20px;
+}
+
+.step-card li {
+    margin: 6px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Сетка материалов */
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.material-card {
+    background: #f8fafc;
+    padding: 24px;
+    border-radius: 16px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s;
+}
+
+.material-card:hover {
+    border-color: #22c55e;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.material-icon {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.material-card h4 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+}
+
+.acceptable-list,
+.unacceptable-list {
+    margin: 8px 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 3px;
+    font-weight: 500;
+}
+
+.tag.green {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.tag.red {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Правила */
+.rules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rule-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    background: #f0fdf4;
+    border-radius: 14px;
+    border-left: 5px solid #22c55e;
+    transition: all 0.3s;
+}
+
+.rule-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.rule-icon {
+    font-size: 28px;
+    min-width: 45px;
+    text-align: center;
+}
+
+.rule-item p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Ошибки */
+.mistakes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.mistake-card {
+    background: #fef2f2;
+    padding: 24px;
+    border-radius: 16px;
+    border: 2px solid #fecaca;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.mistake-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.15);
+}
+
+.mistake-icon {
+    font-size: 44px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.mistake-card h4 {
+    color: #991b1b;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.mistake-card p {
+    color: #555;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+    }
+    
+    .nav-link {
+        text-align: center;
+        padding: 14px;
+    }
+    
+    .calc-header h2,
+    .guide-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .guide-steps,
+    .materials-grid,
+    .mistakes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .guide-tabs {
+        gap: 8px;
+    }
+    
+    .tab-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 10px;
+    }
+    
+    .calculator-container,
+    .eco-guide {
+        border-radius: 20px;
+    }
+    
+    .calc-item input {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .step-number {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+        top: -14px;
+        left: -14px;
+    }
+    
+    .step-card {
+        padding: 24px 16px 16px 16px;
+    }
+    
+    .rule-item {
+        padding: 14px 16px;
+    }
+    
+    .rule-icon {
+        font-size: 24px;
+        min-width: 35px;
+    }
+}
+
+@media (max-width: 400px) {
+    .tab-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+    
+    .tab-content {
+        padding: 16px;
+    }
+    
+    .calc-body {
+        padding: 16px;
+    }
+}
