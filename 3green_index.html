@@ -5,56 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Калькулятор и Эко-справочник</title>
     <link rel="stylesheet" href="3green_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Навигация -->
     <nav class="main-nav">
-        <a href="index.html" class="nav-link">🗺️ Карта</a>
-        <a href="calculator.html" class="nav-link active">♻️ Калькулятор и справочник</a>
+        <a href="2green_index.html" class="nav-link">🗺️ Карта</a>
+        <a href="3green_index.html" class="nav-link active">♻️ Калькулятор и справочник</a>
     </nav>
 
-    <!-- Калькулятор -->
-    <div class="calculator-container">
-        <div class="calc-header">
-            <h2>♻️ Калькулятор заработка на вторсырье</h2>
-            <p>Узнайте, сколько можно заработать на сдаче отходов</p>
+    <!-- КАЛЬКУЛЯТОР ВТОРСЫРЬЯ -->
+    <section class="recycle-calculator">
+        <div class="section-header">
+            <div class="section-icon">♻️</div>
+            <h2 class="section-title">Калькулятор дохода от вторсырья</h2>
+            <p class="section-subtitle">Узнайте, сколько вы можете заработать, сдавая отходы на переработку</p>
         </div>
         
-        <div class="calc-body">
-            <div class="calc-item">
-                <label>📦 Макулатура (кг):</label>
-                <input type="number" id="paper" min="0" value="0" placeholder="0">
-                <span class="price">≈ 6-12 ₽/кг</span>
+        <div class="calculator-container">
+            <div class="calculator-inputs">
+                <div class="input-group">
+                    <label class="input-label">
+                        <span class="material-icon">📄</span> Макулатура (кг)
+                    </label>
+                    <input type="number" id="paper-kg" class="calc-input" value="0" min="0" step="1">
+                    <div class="price-hint">~ 5 ₽/кг</div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">
+                        <span class="material-icon">🥤</span> ПЭТ-бутылки (кг)
+                    </label>
+                    <input type="number" id="pet-kg" class="calc-input" value="0" min="0" step="1">
+                    <div class="price-hint">~ 15 ₽/кг</div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">
+                        <span class="material-icon">🥫</span> Алюминиевые банки (кг)
+                    </label>
+                    <input type="number" id="aluminum-kg" class="calc-input" value="0" min="0" step="1">
+                    <div class="price-hint">~ 40 ₽/кг</div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">
+                        <span class="material-icon">🔋</span> Батарейки (шт.)
+                    </label>
+                    <input type="number" id="batteries-pcs" class="calc-input" value="0" min="0" step="1">
+                    <div class="price-hint">~ 0.5 ₽/шт.</div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">
+                        <span class="material-icon">🥛</span> Стекло (кг)
+                    </label>
+                    <input type="number" id="glass-kg" class="calc-input" value="0" min="0" step="1">
+                    <div class="price-hint">~ 3 ₽/кг</div>
+                </div>
             </div>
             
-            <div class="calc-item">
-                <label>🧴 Пластик ПЭТ (кг):</label>
-                <input type="number" id="plastic" min="0" value="0" placeholder="0">
-                <span class="price">≈ 15-25 ₽/кг</span>
-            </div>
-            
-            <div class="calc-item">
-                <label>🥫 Алюминиевые банки (кг):</label>
-                <input type="number" id="aluminum" min="0" value="0" placeholder="0">
-                <span class="price">≈ 50-80 ₽/кг</span>
-            </div>
-            
-            <div class="calc-item">
-                <label>🪟 Стекло (кг):</label>
-                <input type="number" id="glass" min="0" value="0" placeholder="0">
-                <span class="price">≈ 1-3 ₽/кг</span>
-            </div>
-            
-            <button onclick="calculateEarnings()">💰 Рассчитать заработок</button>
-            
-            <div class="calc-result" id="result" style="display:none;">
-                <h3>💵 Ваш заработок:</h3>
-                <p id="minEarnings"></p>
-                <p id="maxEarnings"></p>
-                <p id="recommendation"></p>
+            <div class="calculator-result">
+                <div class="result-amount">
+                    <span class="result-label">💰 Возможный доход:</span>
+                    <span class="result-value" id="total-amount">0</span>
+                    <span class="result-currency">₽</span>
+                </div>
+                <div class="eco-impact" id="eco-impact">
+                    🌱 Вы сохраните природу, сдав отходы на переработку!
+                </div>
+                <button class="reset-btn" id="reset-calc">🔄 Очистить</button>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Эко-справочник -->
     <div class="eco-guide">
@@ -63,7 +86,6 @@
             <p>Как правильно подготовить и сдать вторсырье на переработку</p>
         </div>
         
-        <!-- Табы -->
         <div class="guide-tabs">
             <button class="tab-btn active" onclick="openTab(event, 'preparation')">🧹 Подготовка</button>
             <button class="tab-btn" onclick="openTab(event, 'materials')">📦 Материалы</button>
@@ -71,7 +93,6 @@
             <button class="tab-btn" onclick="openTab(event, 'mistakes')">❌ Ошибки</button>
         </div>
         
-        <!-- Содержимое табов -->
         <div id="preparation" class="tab-content active">
             <h3>🧹 Как подготовить вторсырье к сдаче</h3>
             <div class="guide-steps">
@@ -242,7 +263,106 @@
             </div>
         </div>
     </div>
+<!-- МОТИВАЦИЯ: ЧТО МОЖНО ПОЛУЧИТЬ -->
+<section class="motivation-rewards">
+    <div class="section-header">
+        <div class="section-icon">🎁</div>
+        <h2 class="section-title">Во что превращается ваше вторсырьё</h2>
+        <p class="section-subtitle">Наведите на карточку, чтобы увидеть результат переработки</p>
+    </div>
+    
+    <div class="rewards-track">
+        <!-- Карточка 1 -->
+        <div class="reward-flip">
+            <div class="reward-inner">
+                <div class="reward-front">
+                    <span class="reward-emoji">📄</span>
+                    <span class="reward-count">60 кг макулатуры</span>
+                    <span class="reward-hint">👆 Наведи</span>
+                </div>
+                <div class="reward-back">
+                    <span class="reward-emoji">🌳</span>
+                    <span class="reward-text">Спасает 1 взрослое дерево!</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карточка 2 -->
+        <div class="reward-flip">
+            <div class="reward-inner">
+                <div class="reward-front">
+                    <span class="reward-emoji">🧴</span>
+                    <span class="reward-count">400 ПЭТ-бутылок</span>
+                    <span class="reward-hint">👆 Наведи</span>
+                </div>
+                <div class="reward-back">
+                    <span class="reward-emoji">👕</span>
+                    <span class="reward-text">1 тёплая флисовая кофта</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карточка 3 -->
+        <div class="reward-flip">
+            <div class="reward-inner">
+                <div class="reward-front">
+                    <span class="reward-emoji">🥫</span>
+                    <span class="reward-count">670 алюм. банок</span>
+                    <span class="reward-hint">👆 Наведи</span>
+                </div>
+                <div class="reward-back">
+                    <span class="reward-emoji">🚲</span>
+                    <span class="reward-text">1 новый велосипед!</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карточка 4 -->
+        <div class="reward-flip">
+            <div class="reward-inner">
+                <div class="reward-front">
+                    <span class="reward-emoji">🥛</span>
+                    <span class="reward-count">100 кг стекла</span>
+                    <span class="reward-hint">👆 Наведи</span>
+                </div>
+                <div class="reward-back">
+                    <span class="reward-emoji">🪟</span>
+                    <span class="reward-text">100 новых бутылок</span>
+                </div>
+            </div>
+        </div>
 
+        <!-- Карточка 5 -->
+        <div class="reward-flip">
+            <div class="reward-inner">
+                <div class="reward-front">
+                    <span class="reward-emoji">🔋</span>
+                    <span class="reward-count">1000 батареек</span>
+                    <span class="reward-hint">👆 Наведи</span>
+                </div>
+                <div class="reward-back">
+                    <span class="reward-emoji">🔩</span>
+                    <span class="reward-text">20 кг металла</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 6 -->
+        <div class="reward-flip">
+            <div class="reward-inner">
+                <div class="reward-front">
+                    <span class="reward-emoji">📦</span>
+                    <span class="reward-count">1 т макулатуры</span>
+                    <span class="reward-hint">👆 Наведи</span>
+                </div>
+                <div class="reward-back">
+                    <span class="reward-emoji">📚</span>
+                    <span class="reward-text">750 кг новой бумаги</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <script src="3green_index.js"></script>
 </body>
 </html>

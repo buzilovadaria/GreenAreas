@@ -3,31 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Зеленые зоны Ижевска</title>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU&quot; type="text/javascript"></script>
+    <title>Зеленые зоны Ижевска - Сохраним природу вместе</title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU" type="text/javascript"></script>
     <link rel="stylesheet" href="2green_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="map-container">
-        <div class="map-header">
-            <h2>Зеленые зоны Ижевска</h2>
-            <p>Интерактивная карта с возможностью приближения и перетаскивания</p>
-        </div>
+    <!-- Главный контейнер с фоновым геометрическим принтом -->
+    <div class="site-wrapper">
+        <div class="geometric-bg"></div>
+        
+        <div class="content-container">
+            <!-- ШАПКА САЙТА -->
+            <header class="main-header">
+                <div class="header-content">
+                    <h1 class="site-title">🌿 Зеленые зоны Ижевска</h1>
+                    <p class="site-subtitle">Откройте для себя оазисы природы в сердце города</p>
+                </div>
+            </header>
 
-        <div class="map-wrapper">
-            <div id="custom-map"></div>
-        </div>
+            <!-- НАВИГАЦИЯ -->
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">🗺️ Карта</a>
+                <a href="calculator.html" class="nav-link">♻️ Калькулятор и справочник</a>
+            </nav>
 
-        <div class="map-footer">
-            <div class="address">
-                <span>📍 Ижевск, Удмуртия</span>
+            <!-- КРАТКИЙ ТЕКСТ О ВАЖНОСТИ ПРИРОДЫ -->
+            <section class="nature-importance">
+                <div class="importance-card">
+                    <div class="importance-icon">🌍</div>
+                    <h3>Природа в городе — наше общее будущее</h3>
+                    <p>Зеленые зоны Ижевска — это не просто места для прогулок. Это легкие нашего города, которые очищают воздух, снижают шум, создают комфортный микроклимат и дарят нам возможность отдыхать, не выезжая за пределы города. Сохраняя парки, скверы и бульвары, мы заботимся о своем здоровье и будущем следующих поколений. Каждое дерево — это вклад в чистый воздух, которым мы дышим каждый день.</p>
+                </div>
+            </section>
+
+            <!-- ИНТЕРАКТИВНАЯ КАРТА -->
+            <div class="map-container">
+                <div class="map-header">
+                    <h2>🗺️ Исследуйте зеленые зоны на карте</h2>
+                    <p>Нажмите на маркер, чтобы узнать подробности</p>
+                </div>
+                <div class="map-wrapper">
+                    <div id="custom-map"></div>
+                </div>
+                <div class="map-footer">
+                    <div class="address">
+                        <span>📍 Ижевск, Удмуртия</span>
+                    </div>
+                    <div class="controls-note">
+                        🖱️ Масштабируй | 📌 Тяни карту | 🔍 Кликай по маркерам
+                    </div>
+                </div>
             </div>
-            <div class="controls-note">
-                🖱️ Масштабируй | 📌 Тяни карту | 🔍 Кликай по маркерам
-            </div>
+
+            <!-- КАРТОЧКИ ПОПУЛЯРНЫХ ЗОН -->
+            <section class="popular-zones">
+                <div class="section-header">
+                    <div class="section-icon">⭐</div>
+                    <h2 class="section-title">Самые популярные зеленые зоны</h2>
+                    <p class="section-subtitle">Места, которые любят жители Ижевска</p>
+                </div>
+                
+                <div class="cards-container" id="popular-cards">
+                    <!-- Карточки будут добавлены через JavaScript -->
+                </div>
+            </section>
+
+            <!-- ИНТЕРАКТИВНЫЙ БЛОК ЭКО-СОВЕТ ДНЯ -->
+            <section class="eco-tip">
+                <div class="section-header">
+                    <div class="section-icon">💡</div>
+                    <h2 class="section-title">Эко-совет дня</h2>
+                    <p class="section-subtitle">Маленькие шаги к большой экологии</p>
+                </div>
+                
+                <div class="tip-container" id="eco-tip-container">
+                    <div class="tip-icon">🌿</div>
+                    <div class="tip-content" id="tip-text">
+                        Загружаем совет дня...
+                    </div>
+                    <button class="tip-refresh" id="refresh-tip">🔄 Другой совет</button>
+                </div>
+            </section>
+
+            <!-- ФУТЕР -->
+            <footer class="main-footer">
+                <div class="footer-content">
+                    <div class="footer-quote">
+                        🌱 «Природа — это не то, что мы унаследовали от предков, 
+                        а то, что мы взяли в долг у потомков»
+                    </div>
+                    <div class="footer-copyright">
+                        © 2026 Зеленые зоны Ижевска | Сохраним природу вместе
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 
     <script src="2green_index.js"></script>
+    
 </body>
 </html>

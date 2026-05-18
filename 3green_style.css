@@ -6,8 +6,8 @@
 }
 
 body {
-    font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif;
-    background: #eef2f5;
+    font-family: 'Inter', system-ui, 'Segoe UI', 'Roboto', sans-serif;
+    background: #e8f0e5;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,134 +49,162 @@ body {
 }
 
 /* ==================== КАЛЬКУЛЯТОР ==================== */
-.calculator-container {
+.recycle-calculator {
     max-width: 1200px;
     width: 100%;
     background: white;
-    border-radius: 28px;
-    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+    border-radius: 30px;
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.section-header {
+    text-align: center;
     margin-bottom: 30px;
 }
 
-.calc-header {
-    padding: 28px 28px 8px 28px;
+.section-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-.calc-header h2 {
+.section-title {
     font-size: 1.8rem;
-    font-weight: 600;
-    color: #1e2a3e;
+    color: #1a5f1a;
+    margin-bottom: 10px;
 }
 
-.calc-header p {
-    color: #4a627a;
-    margin-top: 8px;
-    font-size: 0.95rem;
-}
-
-.calc-body {
-    padding: 20px 28px 28px 28px;
-}
-
-.calc-item {
-    margin-bottom: 20px;
-}
-
-.calc-item label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #1e3a8a;
+.section-subtitle {
+    color: #718096;
     font-size: 1rem;
 }
 
-.calc-item input {
-    width: 100%;
-    padding: 14px 16px;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    font-size: 16px;
-    transition: all 0.3s;
-    background: #f8fafc;
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
 
-.calc-item input:focus {
-    outline: none;
-    border-color: #3b82f6;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+@media (max-width: 768px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+    }
 }
 
-.calc-item input:hover {
-    border-color: #94a3b8;
+.calculator-inputs {
+    display: grid;
+    gap: 20px;
 }
 
-.price {
-    display: inline-block;
-    margin-top: 8px;
-    color: #64748b;
-    font-size: 0.85rem;
-    background: #f1f5f9;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-weight: 500;
+.input-group {
+    background: #f7faf7;
+    padding: 15px;
+    border-radius: 15px;
+    transition: all 0.2s ease;
 }
 
-.calc-body button {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, #22c55e, #16a34a);
-    color: white;
-    border: none;
-    border-radius: 14px;
-    font-size: 17px;
+.input-group:hover {
+    background: #eff7ef;
+    transform: translateX(5px);
+}
+
+.input-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-weight: 600;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: all 0.3s;
-    letter-spacing: 0.3px;
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
-.calc-body button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
-}
-
-.calc-body button:active {
-    transform: translateY(0);
-}
-
-.calc-result {
-    margin-top: 24px;
-    padding: 24px;
-    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-    border-radius: 16px;
-    border: 2px solid #86efac;
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.calc-result h3 {
-    color: #166534;
-    margin-bottom: 15px;
+.material-icon {
     font-size: 1.3rem;
 }
 
-.calc-result p {
-    font-size: 16px;
-    color: #333;
-    margin: 8px 0;
-    line-height: 1.5;
+.calc-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #cbd5e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    background: white;
 }
 
-.calc-result strong {
-    color: #15803d;
-    font-size: 1.1em;
+.calc-input:focus {
+    outline: none;
+    border-color: #2d8a2d;
+    box-shadow: 0 0 0 3px rgba(45, 138, 45, 0.1);
+}
+
+.price-hint {
+    font-size: 0.8rem;
+    color: #718096;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.calculator-result {
+    background: linear-gradient(135deg, #e8f5e8, #d4edd4);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.result-amount {
+    margin-bottom: 20px;
+}
+
+.result-label {
+    font-size: 1.1rem;
+    color: #2d3748;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.result-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #2d8a2d;
+}
+
+.result-currency {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2d8a2d;
+}
+
+.eco-impact {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    color: #4a5568;
+}
+
+.reset-btn {
+    background: #2d8a2d;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.reset-btn:hover {
+    background: #1a5f1a;
+    transform: scale(1.02);
 }
 
 /* ==================== ЭКО-СПРАВОЧНИК ==================== */
@@ -226,6 +254,7 @@ body {
     color: #64748b;
     transition: all 0.3s;
     white-space: nowrap;
+    font-family: inherit;
 }
 
 .tab-btn:hover {
@@ -255,6 +284,11 @@ body {
     font-size: 1.4rem;
     color: #166534;
     margin-bottom: 24px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Шаги подготовки */
@@ -460,7 +494,7 @@ body {
         padding: 14px;
     }
     
-    .calc-header h2,
+    .section-title,
     .guide-header h2 {
         font-size: 1.5rem;
     }
@@ -486,14 +520,19 @@ body {
         padding: 10px;
     }
     
-    .calculator-container,
+    .recycle-calculator,
     .eco-guide {
         border-radius: 20px;
+        padding: 20px;
     }
     
-    .calc-item input {
+    .calc-input {
         padding: 12px;
         font-size: 14px;
+    }
+    
+    .result-value {
+        font-size: 2.5rem;
     }
     
     .step-number {
@@ -528,7 +567,135 @@ body {
         padding: 16px;
     }
     
-    .calc-body {
-        padding: 16px;
+    .calculator-result {
+        padding: 20px;
+    }
+}
+/* ==================== МОТИВАЦИЯ: НАГРАДЫ ==================== */
+.motivation-rewards {
+    max-width: 1200px;
+    width: 100%;
+    background: white;
+    border-radius: 30px;
+    padding: 35px 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.rewards-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+/* Контейнер переворота */
+.reward-flip {
+    width: 160px;
+    height: 160px;
+    perspective: 800px;
+    flex-shrink: 1;
+    cursor: pointer;
+}
+
+/* Внутренний блок для анимации */
+.reward-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+/* Переворот при наведении (десктоп) */
+.reward-flip:hover .reward-inner {
+    transform: rotateY(180deg);
+}
+
+/* Переворот при касании (мобильные) */
+.reward-flip:active .reward-inner {
+    transform: rotateY(180deg);
+}
+
+/* Лицевая и задняя стороны */
+.reward-front,
+.reward-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Лицевая сторона */
+.reward-front {
+    background: linear-gradient(135deg, #e8f5e8, #c8e6c8);
+    border: 3px solid #2d8a2d;
+}
+
+/* Задняя сторона */
+.reward-back {
+    background: linear-gradient(135deg, #1a5f1a, #2d8a2d);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.reward-emoji {
+    font-size: 2.5rem;
+}
+
+.reward-count {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #2d3748;
+}
+
+.reward-hint {
+    font-size: 0.6rem;
+    color: #718096;
+    background: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.reward-text {
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+/* Адаптивность */
+@media (max-width: 1100px) {
+    .rewards-track {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 640px) {
+    .motivation-rewards {
+        padding: 25px 15px;
+        border-radius: 20px;
+    }
+    
+    .rewards-track {
+        gap: 10px;
+    }
+    
+    .reward-flip {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .reward-emoji {
+        font-size: 2rem;
     }
 }
