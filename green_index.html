@@ -3,161 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Интерактивная карта на сайте</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <div id="custom-map" style="height: 400px;"></div>
-    <script>
-        const map = L.map('custom-map').setView([55.755864, 37.617698], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-        L.marker([426035]).addTo(map).bindPopup('Козий парк');
-    </script>
-    <script src="green_index.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif;
-            background: #eef2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-
-        .map-container {
-            max-width: 1200px;
-            width: 100%;
-            background: white;
-            border-radius: 28px;
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            transition: all 0.2s ease;
-        }
-
-        .map-header {
-            padding: 20px 28px 8px 28px;
-        }
-
-        .map-header h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1e2a3e;
-            letter-spacing: -0.3px;
-        }
-
-        .map-header p {
-            color: #4a627a;
-            margin-top: 8px;
-            font-size: 0.95rem;
-        }
-
-        .map-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; 
-            background: #d9e2ec;
-        }
-
-        .map-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .map-footer {
-            padding: 18px 28px 24px 28px;
-            background: #ffffff;
-            border-top: 1px solid #e9edf2;
-            font-size: 0.9rem;
-            color: #2c3e50;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .address {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #f8fafc;
-            padding: 6px 14px;
-            border-radius: 60px;
-        }
-
-        .address svg {
-            flex-shrink: 0;
-        }
-
-        .controls-note {
-            font-size: 0.8rem;
-            background: #f1f5f9;
-            padding: 6px 12px;
-            border-radius: 40px;
-            color: #3b5c7e;
-        }
-
-        @media (max-width: 640px) {
-            .map-header h2 {
-                font-size: 1.4rem;
-            }
-            .map-footer {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .map-container {
-                border-radius: 20px;
-            }
-        }
-    </style>
+    <title>Зеленые зоны Ижевска - Сохраним природу вместе</title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU&quot; type="text/javascript"></script>
+    <link rel="stylesheet" href="green_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Главный контейнер с фоновым геометрическим принтом -->
+    <div class="site-wrapper">
+        <div class="geometric-bg"></div>
 
-<div class="map-container">
-    <div class="map-header">
-        <h2>Зеленые зоны Ижевска</h2>
-        <p>Интерактивная карта с возможностью приближения и перетаскивания</p>
-    </div>
+        <header class="main-header">
+            <div class="header-content"> <!-- Содержимое шапки с ограничением -->
+                <h1 class="site-title">🌿 Зеленые зоны Ижевска</h1>
+                <p class="site-subtitle">Откройте для себя оазисы природы в сердце города</p>
+            </div>
+        </header>
+        
+        <div class="content-container">
 
-    <div class="map-wrapper">
-    
+            <!-- КРАТКИЙ ТЕКСТ О ВАЖНОСТИ ПРИРОДЫ -->
+            <section class="nature-importance">
+                <div class="importance-card">
+                    <div class="importance-icon">🌍</div>
+                    <h3>Природа в городе — наше общее будущее</h3>
+                    <p>Зеленые зоны Ижевска — это не просто места для прогулок. Это легкие нашего города, которые очищают воздух, снижают шум, создают комфортный микроклимат и дарят нам возможность отдыхать, не выезжая за пределы города. Сохраняя парки, скверы и бульвары, мы заботимся о своем здоровье и будущем следующих поколений. Каждое дерево — это вклад в чистый воздух, которым мы дышим каждый день.</p>
+                </div>
+            </section>
 
-        <div class="map-wrapper">
-        <iframe 
-            title="Карта Ижевска"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=53.1714%2C56.8228%2C53.2516%2C56.8828&layer=mapnik&marker=56.852775%2C53.211483" 
-            allow="geolocation *"
-            loading="lazy">
-        </iframe>
+            <!-- ИНТЕРАКТИВНАЯ КАРТА (БЕЗ ИЗМЕНЕНИЙ) -->
+            <div class="map-container">
+                <div class="map-header">
+                    <h2>🗺️ Исследуйте зеленые зоны на карте</h2>
+                    <p>Нажмите на маркер, чтобы узнать подробности</p>
+                </div>
+                <div class="map-wrapper">
+                    <div id="custom-map"></div>
+                </div>
+                <div class="map-footer">
+                    <div class="address">
+                        <span>📍 Ижевск, Удмуртия</span>
+                    </div>
+                    <div class="controls-note">
+                        🖱️ Масштабируй | 📌 Тяни карту | 🔍 Кликай по маркерам
+                    </div>
+                </div>
+            </div>
+            <!-- КАРТОЧКИ ПОПУЛЯРНЫХ ЗОН -->
+            <section class="popular-zones">
+                <div class="section-header">
+                    <div class="section-icon">⭐</div>
+                    <h2 class="section-title">Самые популярные зеленые зоны</h2>
+                    <p class="section-subtitle">Места, которые любят жители Ижевска</p>
+                </div>
+                
+                <div class="cards-container" id="popular-cards">
+                    <!-- Карточки будут добавлены через JavaScript -->
+                </div>
+            </section>
 
-</div>
-    </div>
-
-    <div class="map-footer">
-        <div class="address">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="426035" fill="#E11D48"/>
-            </svg>
-            <span>Ижевск</span>
+            <!-- ИНТЕРАКТИВНЫЙ БЛОК ЭКО-СОВЕТ ДНЯ -->
+            <section class="eco-tip">
+                <div class="section-header">
+                    <div class="section-icon">💡</div>
+                    <h2 class="section-title">Эко-совет дня</h2>
+                    <p class="section-subtitle">Маленькие шаги к большой экологии</p>
+                </div>
+                
+                <div class="tip-container" id="eco-tip-container">
+                    <div class="tip-icon">🌿</div>
+                    <div class="tip-content" id="tip-text">
+                        Загружаем совет дня...
+                    </div>
+                    <button class="tip-refresh" id="refresh-tip">🔄 Другой совет</button>
+                </div>
+            </section>   
         </div>
-        <div class="controls-note">
-            🖱️ Масштабируй колесиком мыши | 📌 Тяни карту
-        </div>
+        
+        <footer class="main-footer">
+                <div class="footer-content">
+                    <div class="footer-quote">
+                        🌱 «Природа — это не то, что мы унаследовали от предков, 
+                        а то, что мы взяли в долг у потомков»
+                    </div>
+                    <div class="footer-copyright">
+                        © 2026 Зеленые зоны Ижевска | Сохраним природу вместе
+                    </div>
+                </div>
+        </footer>
+        
     </div>
-</div>
 
-
-
+    <script src="2green_index.js"></script>
+    <script src="green_index.js"></script>
 </body>
 </html>

@@ -1,247 +1,109 @@
-// ========== МАССИВ С МАРКЕРАМИ ==========
-const markersData = [
-    {
-        id: 1,
-        coords: [56.852775, 53.211483],
-        name: "Центральная площадь",
-        description: "Главная площадь Ижевска, место проведения городских праздников и фестивалей",
-        category: "Достопримечательность",
-        address: "ул. Пушкинская, 2"
-    },
-    {
-        id: 2,
-        coords: [56.849500, 53.219500],
-        name: "Ижевский пруд",
-        description: "Один из крупнейших искусственных прудов в Европе, созданный в XVIII веке",
-        category: "Природа",
-        address: "набережная Ижевского пруда"
-    },
-    {
-        id: 3,
-        coords: [56.858000, 53.205000],
-        name: "Михайловский собор",
-        description: "Православный собор, восстановленный в 2000-х годах",
-        category: "Храм",
-        address: "ул. Красная, 28"
-    },
-    {
-        id: 4,
-        coords: [56.847000, 53.194000],
-        name: "Парк Кирова",
-        description: "Любимое место отдыха горожан с аттракционами",
-        category: "Парк",
-        address: "ул. Пушкинская, 190"
-    },
-    {
-        id: 5,
-        coords: [56.860000, 53.225000],
-        name: "Монумент Дружбы народов",
-        description: "Символ единения народов, открытый в 1972 году",
-        category: "Памятник",
-        address: "пл. Оружейников"
-    },
-    {
-        id: 6,
-        coords: [56.855000, 53.202000],
-        name: "Национальный музей УР",
-        description: "Главный музей Удмуртии с богатой коллекцией",
-        category: "Музей",
-        address: "ул. Коммунаров, 287"
-    }
+// ===== КАРТОЧКИ ПОПУЛЯРНЫХ ЗОН =====
+// Выбираем 5 самых популярных зон (первые 5 из массива или специально отобранные)
+function getPopularZones() {
+    // Фильтруем только зеленые зоны (не пункты приема)
+    const greenZones = markersData.filter(marker => marker.type !== 'recycle');
+    // Берем первые 5 или все, если меньше
+    return greenZones.slice(0, 4);
+}
+
+function createCard(zone) {
+    const card = document.createElement('div');
+    card.className = 'zone-card';
+    card.onclick = () => {
+        // При клике на карточку центрируем карту на маркере
+        if (currentMap && zone.coords) {
+            currentMap.setCenter(zone.coords, 16);
+            // Ищем соответствующий маркер и открываем балун
+            const marker = currentMarkers.find(m => {
+                const markerCoords = m.geometry.getCoordinates();
+                return markerCoords[0] === zone.coords[0] && markerCoords[1] === zone.coords[1];
+            });
+            if (marker) {
+                marker.balloon.open();
+            }
+        }
+    };
+    
+    const imageUrl = zone.image || 'images/placeholder.png';
+    const categoryEmoji = zone.category === 'Парк' ? '🌳' : 
+                          zone.category === 'Сквер' ? '🌿' :
+                          zone.category === 'Лес' ? '🌲' :
+                          zone.category === 'Бульвар' ? '🚶' :
+                          zone.category === 'Аллея' ? '🌸' : '🍃';
+    
+    card.innerHTML = `
+        <img class="card-image" src="${imageUrl}" alt="${zone.name}" 
+             onerror="this.src='https://placehold.co/400x200/e8f5e8/2d8a2d?text=🌳+Зеленая+зона'">
+        <div class="card-content">
+            <div class="card-title">${zone.name}</div>
+            <div class="card-category">${categoryEmoji} ${zone.category}</div>
+            <div class="card-description">${zone.description.substring(0, 100)}${zone.description.length > 100 ? '...' : ''}</div>
+            <div class="card-address">📍 ${zone.address.substring(0, 50)}${zone.address.length > 50 ? '...' : ''}</div>
+        </div>
+    `;
+    
+    return card;
+}
+
+function loadPopularCards() {
+    const container = document.getElementById('popular-cards');
+    if (!container) return;
+    
+    const popularZones = getPopularZones();
+    container.innerHTML = '';
+    popularZones.forEach(zone => {
+        container.appendChild(createCard(zone));
+    });
+}
+
+// ===== ЭКО-СОВЕТЫ ДНЯ =====
+const ecoTips = [
+    "💡 Возьмите с собой многоразовую сумку в магазин — одна сумка заменяет 400 пластиковых пакетов в год!",
+    "💡 Выключайте свет, когда выходите из комнаты — это экономит до 15% электроэнергии.",
+    "💡 Используйте обе стороны бумаги при печати — так вы сохраните вдвое больше деревьев.",
+    "💡 Сдавайте батарейки отдельно — одна батарейка загрязняет 20 кв.м почвы!",
+    "💡 Покупайте напитки в стеклянной таре — стекло можно перерабатывать бесконечно.",
+    "💡 Замените пластиковую зубную щетку на бамбуковую — она разлагается за 6 месяцев.",
+    "💡 Собирайте дождевую воду для полива растений — это экономит ресурсы и снижает счета.",
+    "💡 Отдавайте ненужные вещи на благотворительность или в секонд-хенд — продлите им жизнь!",
+    "💡 Ходите в магазин со своим контейнером для продуктов — меньше пластика, больше пользы.",
+    "💡 Участвуйте в субботниках в парках Ижевска — вместе мы можем сделать город чище!",
+    "💡 Компостируйте органические отходы — это отличное удобрение и меньше мусора на свалках.",
+    "💡 Выбирайте электронные билеты и чеки — сохраняйте деревья от вырубки.",
+    "💡 Сажайте деревья во дворе — каждое дерево очищает воздух для 3 человек!",
+    "💡 Сортируйте отходы дома — начните с двух контейнеров: смешанный мусор и вторсырье."
 ];
 
-// ========== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ==========
-let currentMap = null;
-let currentMarkers = [];
+let currentTipIndex = -1;
 
-// ========== ФУНКЦИЯ ДЛЯ ИНИЦИАЛИЗАЦИИ КАРТЫ ==========
-function initMap(containerId = 'map', centerCoords = [56.852775, 53.211483], zoomLevel = 13) {
-    // Проверяем, загружена ли библиотека Leaflet
-    if (typeof L === 'undefined') {
-        console.error('Leaflet не загружен! Подключите CSS и JS библиотеки');
-        return null;
-    }
-    
-    // Создаём карту
-    const map = L.map(containerId).setView(centerCoords, zoomLevel);
-    
-    // Добавляем слой с картой (OpenStreetMap)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 19
-    }).addTo(map);
-    
-    return map;
+function getRandomTip() {
+    let newIndex;
+    do {
+        newIndex = Math.floor(Math.random() * ecoTips.length);
+    } while (newIndex === currentTipIndex && ecoTips.length > 1);
+    currentTipIndex = newIndex;
+    return ecoTips[currentTipIndex];
 }
 
-// ========== ФУНКЦИЯ ДЛЯ ДОБАВЛЕНИЯ МАРКЕРОВ НА КАРТУ ==========
-function addMarkersToMap(map, markers) {
-    if (!map) {
-        console.error('Карта не инициализирована');
-        return [];
-    }
-    
-    const addedMarkers = [];
-    
-    markers.forEach(marker => {
-        // Создаём маркер
-        const markerObj = L.marker(marker.coords);
-        
-        // Добавляем всплывающее окно
-        const popupContent = `
-            <div style="min-width: 200px; font-family: Arial, sans-serif;">
-                <h3 style="margin: 0 0 8px 0; color: #e11d48;">${marker.name}</h3>
-                <p style="margin: 5px 0;"><strong>📍 Категория:</strong> ${marker.category || 'Не указана'}</p>
-                <p style="margin: 5px 0;"><strong>📝 Описание:</strong> ${marker.description}</p>
-                <p style="margin: 5px 0;"><strong>🏠 Адрес:</strong> ${marker.address || 'Не указан'}</p>
-            </div>
-        `;
-        markerObj.bindPopup(popupContent);
-        
-        // Добавляем маркер на карту
-        markerObj.addTo(map);
-        addedMarkers.push(markerObj);
-    });
-    
-    console.log(`✅ Добавлено маркеров: ${addedMarkers.length}`);
-    return addedMarkers;
-}
-
-// ========== ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ УНИКАЛЬНЫХ КАТЕГОРИЙ ==========
-function getUniqueCategories(markers) {
-    const categories = markers.map(marker => marker.category);
-    return [...new Set(categories)];
-}
-
-// ========== ФУНКЦИЯ ДЛЯ ПОИСКА МАРКЕРОВ ПО НАЗВАНИЮ ==========
-function searchMarkersByName(markers, searchTerm) {
-    const term = searchTerm.toLowerCase();
-    return markers.filter(marker => 
-        marker.name.toLowerCase().includes(term) || 
-        marker.description.toLowerCase().includes(term)
-    );
-}
-
-// ========== ФУНКЦИЯ ДЛЯ ФИЛЬТРАЦИИ МАРКЕРОВ ПО КАТЕГОРИИ ==========
-function filterMarkersByCategory(markers, category) {
-    if (category === 'all') {
-        return markers;
-    }
-    return markers.filter(marker => marker.category === category);
-}
-
-// ========== ЗАПУСК КАРТЫ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ ==========
-window.addEventListener('DOMContentLoaded', function() {
-    console.log('Страница загружена, инициализируем карту...');
-    
-    const mapContainer = document.getElementById('map');
-    if (!mapContainer) {
-        console.error('Элемент с id="map" не найден!');
-        return;
-    }
-    
-    if (typeof L === 'undefined') {
-        console.error('Leaflet не загружен! Проверьте подключение библиотеки');
-        return;
-    }
-    
-    // Инициализируем карту
-    currentMap = initMap('map', [56.852775, 53.211483], 13);
-    
-    if (currentMap) {
-        // Добавляем маркеры
-        currentMarkers = addMarkersToMap(currentMap, markersData);
-        
-        // Обновляем статистику
-        updateStats();
-        
-        // Заполняем фильтр категорий
-        populateCategoryFilter();
-        
-        console.log('✅ Карта готова! Маркеров добавлено:', currentMarkers.length);
-    } else {
-        console.error('Не удалось создать карту');
-    }
-});
-
-// ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ HTML ==========
-function updateStats() {
-    const statsElement = document.getElementById('stats');
-    if (statsElement) {
-        statsElement.innerHTML = `📊 Всего мест: ${markersData.length} | Категорий: ${getUniqueCategories(markersData).length}`;
+function updateEcoTip() {
+    const tipElement = document.getElementById('tip-text');
+    if (tipElement) {
+        tipElement.textContent = getRandomTip();
+        // Добавляем небольшую анимацию
+        tipElement.style.opacity = '0';
+        setTimeout(() => {
+            tipElement.style.opacity = '1';
+        }, 50);
     }
 }
-
-function populateCategoryFilter() {
-    const select = document.getElementById('categoryFilter');
-    if (select) {
-        const categories = getUniqueCategories(markersData);
-        categories.forEach(cat => {
-            const option = document.createElement('option');
-            option.value = cat;
-            option.textContent = cat;
-            select.appendChild(option);
-        });
+    
+    // Загружаем карточки популярных зон
+    loadPopularCards();
+    
+    // Настраиваем эко-совет
+    updateEcoTip();
+    const refreshBtn = document.getElementById('refresh-tip');
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', updateEcoTip);
     }
-}
-
-function filterByCategory() {
-    const select = document.getElementById('categoryFilter');
-    if (!select || !currentMap) return;
-    
-    const category = select.value;
-    const filtered = filterMarkersByCategory(markersData, category);
-    
-    // Очищаем все маркеры с карты
-    currentMarkers.forEach(marker => {
-        currentMap.removeLayer(marker);
-    });
-    
-    // Добавляем отфильтрованные маркеры
-    currentMarkers = addMarkersToMap(currentMap, filtered);
-}
-
-function searchMarkers() {
-    const searchInput = document.getElementById('searchInput');
-    if (!searchInput || !currentMap) return;
-    
-    const searchTerm = searchInput.value;
-    const results = searchMarkersByName(markersData, searchTerm);
-    
-    // Очищаем все маркеры с карты
-    currentMarkers.forEach(marker => {
-        currentMap.removeLayer(marker);
-    });
-    
-    // Добавляем найденные маркеры
-    currentMarkers = addMarkersToMap(currentMap, results);
-}
-
-function resetMap() {
-    // Очищаем поля
-    const searchInput = document.getElementById('searchInput');
-    const categoryFilter = document.getElementById('categoryFilter');
-    
-    if (searchInput) searchInput.value = '';
-    if (categoryFilter) categoryFilter.value = 'all';
-    
-    // Очищаем все маркеры с карты
-    if (currentMap && currentMarkers) {
-        currentMarkers.forEach(marker => {
-            currentMap.removeLayer(marker);
-        });
-    }
-    
-    // Добавляем все маркеры обратно
-    currentMarkers = addMarkersToMap(currentMap, markersData);
-    
-    // Центрируем карту
-    if (currentMap) {
-        currentMap.setView([56.852775, 53.211483], 13);
-    }
-}
-
-// Делаем функции глобальными для доступа из HTML
-window.filterByCategory = filterByCategory;
-window.searchMarkers = searchMarkers;
-window.resetMap = resetMap;

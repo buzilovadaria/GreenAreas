@@ -1,0 +1,354 @@
+/* ===== ГЛОБАЛЬНЫЕ СТИЛИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, 'Segoe UI', 'Roboto', sans-serif;
+    background: #e8f0e5;
+}
+
+/* Фоновый геометрический принт */
+.site-wrapper {
+    position: relative;
+    min-height: 100vh;
+}
+
+.geometric-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-image: 
+        repeating-linear-gradient(45deg, 
+            rgba(34, 139, 34, 0.03) 0px, 
+            rgba(34, 139, 34, 0.03) 2px,
+            transparent 2px, 
+            transparent 8px),
+        repeating-linear-gradient(135deg, 
+            rgba(50, 205, 50, 0.02) 0px, 
+            rgba(50, 205, 50, 0.02) 1px,
+            transparent 1px, 
+            transparent 6px);
+    pointer-events: none;
+}
+
+.content-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ===== ШАПКА САЙТА ===== */
+.main-header {
+    background: linear-gradient(135deg, #1a5f1a, #2d8a2d);
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 30px;
+}
+
+.site-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.site-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+}
+
+/* ===== БЛОК ВАЖНОСТИ ПРИРОДЫ ===== */
+.nature-importance {
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+.importance-card {
+    background: white;
+    border-radius: 40px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-left: 8px solid #2d8a2d;
+    transition: transform 0.3s ease;
+}
+
+.importance-card:hover {
+    transform: translateY(-5px);
+}
+
+.importance-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.importance-card h3 {
+    font-size: 1.3rem;
+    color: #1a5f1a;
+    margin-bottom: 20px;
+}
+
+.importance-card p {
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* ===== КАРТОЧКИ ПОПУЛЯРНЫХ ЗОН ===== */
+.popular-zones {
+    margin-bottom: 40px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+.section-header{
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: large;
+}
+
+.zone-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+}
+
+.zone-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #cbd5e0;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a5f1a;
+    margin-bottom: 8px;
+}
+
+.card-category {
+    display: inline-block;
+    background: #e8f5e8;
+    color: #2d8a2d;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.card-description {
+    color: #4a5568;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-address {
+    font-size: 0.75rem;
+    color: #718096;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ===== ЭКО-СОВЕТ ДНЯ ===== */
+.eco-tip {
+    background: white;
+    border-radius: 30px;
+    padding: 35px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.tip-container {
+    background: linear-gradient(135deg, #f0faf0, #e0f0e0);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.tip-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: gentleFloat 3s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.tip-content {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #2d3748;
+    max-width: 600px;
+    margin: 0 auto 25px;
+    font-weight: 500;
+}
+
+.tip-refresh {
+    background: #2d8a2d;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tip-refresh:hover {
+    background: #1a5f1a;
+    transform: scale(1.02);
+}
+
+/* ===== ФУТЕР ===== */
+/* Футер теперь вне .content-container */
+.main-footer {
+    background: linear-gradient(135deg, #1a3a1a, #1a5f1a);
+    padding: 40px 30px;
+    text-align: center;
+    margin-top: 20px;
+    width: 100%; /* Будет на всю ширину родителя (.site-wrapper) */
+}
+
+/* Чтобы контент внутри футера тоже был по центру, но с ограничением */
+.main-footer .footer-content {
+    max-width: 1300px; /* Как у основного контента */
+    margin: 0 auto; /* Центрируем содержимое */
+    padding: 0 30px; /* Отступы по бокам для красоты */
+    color: #f9fff9;
+}
+
+/* ===== АДАПТАЦИЯ ДЛЯ КАРТЫ (СОХРАНЯЕМ СУЩЕСТВУЮЩИЕ СТИЛИ) ===== */
+/* Существующие стили карты остаются без изменений */
+.map-container {
+    max-width: 100%;
+    width: 100%;
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all 0.2s ease;
+    margin-bottom: 40px;
+}
+
+.map-header {
+    padding: 20px 28px 8px 28px;
+}
+
+.map-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1f3e1e;
+    letter-spacing: -0.3px;
+}
+
+.map-header p {
+    color: #4a627a;
+    margin-top: 8px;
+    font-size: 0.95rem;
+}
+
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    background: #d9e2ec;
+}
+
+#custom-map {
+    width: 100%;
+    height: 500px;
+    background: #d9e2ec;
+    z-index: 1;
+}
+
+.map-footer {
+    padding: 18px 28px 24px 28px;
+    background: #ffffff;
+    border-top: 1px solid #e9edf2;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.address {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8fafc;
+    padding: 6px 14px;
+    border-radius: 60px;
+}
+
+.controls-note {
+    font-size: 0.8rem;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 40px;
+    color: #3b5c7e;
+}
+
+@media (max-width: 640px) {
+    .map-header h2 {
+        font-size: 1.4rem;
+    }
+    .map-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .map-container {
+        border-radius: 20px;
+    }
+    #custom-map {
+        height: 350px;
+    }
+    .site-title {
+        font-size: 1.8rem;
+    }
+    .section-title {
+        font-size: 1.4rem;
+    }
+}
