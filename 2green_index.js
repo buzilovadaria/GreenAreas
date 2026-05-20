@@ -858,4 +858,4 @@ if (marker.image && marker.type !== 'recycle') {
     console.log('🎨 Цвет маркеров: зеленый');
     console.log('📏 Размер окон: увеличенный');
     console.log('📁 Изображения загружаются из папки /images/');
-}); 
+});
