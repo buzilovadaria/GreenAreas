@@ -858,6 +858,9 @@ if (marker.image && marker.type !== 'recycle') {
     console.log('🎨 Цвет маркеров: зеленый');
     console.log('📏 Размер окон: увеличенный');
     console.log('📁 Изображения загружаются из папки /images/');
+<<<<<<< HEAD
+}); 
+=======
 }); 
 // ===== КАРТОЧКИ ПОПУЛЯРНЫХ ЗОН =====
 function getPopularZones() {
@@ -1118,3 +1121,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.getElementById('spin-wheel')?.addEventListener('click', spinWheel);
 });
+>>>>>>> da903a4085bbc0f00cd4ba7fa6ad8a019d8cc9a6

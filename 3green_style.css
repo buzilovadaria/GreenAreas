@@ -1,4 +1,3 @@
-/* ==================== БАЗОВЫЕ СТИЛИ ==================== */
 * {
     margin: 0;
     padding: 0;
@@ -8,54 +7,112 @@
 body {
     font-family: 'Inter', system-ui, 'Segoe UI', 'Roboto', sans-serif;
     background: #e8f0e5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.site-wrapper {
+    position: relative;
     min-height: 100vh;
-    padding: 20px;
 }
 
-/* ==================== НАВИГАЦИЯ ==================== */
-.main-nav {
-    max-width: 1200px;
+.geometric-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 0 auto 20px auto;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    height: 100%;
+    z-index: 0;
+    background-image: 
+        repeating-linear-gradient(45deg, 
+            rgba(34, 139, 34, 0.03) 0px, 
+            rgba(34, 139, 34, 0.03) 2px,
+            transparent 2px, 
+            transparent 8px),
+        repeating-linear-gradient(135deg, 
+            rgba(50, 205, 50, 0.02) 0px, 
+            rgba(50, 205, 50, 0.02) 1px,
+            transparent 1px, 
+            transparent 6px);
+    pointer-events: none;
 }
 
-.nav-link {
-    padding: 12px 24px;
-    background: white;
-    border-radius: 16px;
+.content-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+.main-header {
+    background: linear-gradient(135deg, #1a5f1a, #2d8a2d);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.header-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.header-nav {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.header-btn {
+    padding: 10px 22px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
     text-decoration: none;
-    color: #4a627a;
+    color: white;
     font-weight: 500;
     font-size: 0.95rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.nav-link:hover {
+.header-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-.nav-link.active {
-    background: linear-gradient(135deg, #22c55e, #16a34a);
+.header-btn.active {
+    background: white;
+    color: #2d8a2d;
+    border-color: white;
+    font-weight: 700;
+}
+
+.site-title {
+    font-size: 2.4rem;
+    font-weight: 700;
     color: white;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* ==================== КАЛЬКУЛЯТОР ==================== */
+.site-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Калькулятор */
 .recycle-calculator {
     max-width: 1200px;
     width: 100%;
     background: white;
     border-radius: 30px;
     padding: 35px;
-    margin-bottom: 30px;
+    margin: 30px auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
@@ -84,12 +141,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-}
-
-@media (max-width: 768px) {
-    .calculator-container {
-        grid-template-columns: 1fr;
-    }
 }
 
 .calculator-inputs {
@@ -207,7 +258,7 @@ body {
     transform: scale(1.02);
 }
 
-/* ==================== ЭКО-СПРАВОЧНИК ==================== */
+/* Эко-справочник */
 .eco-guide {
     max-width: 1200px;
     width: 100%;
@@ -215,7 +266,7 @@ body {
     border-radius: 28px;
     box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
 }
 
 .guide-header {
@@ -234,13 +285,11 @@ body {
     font-size: 0.95rem;
 }
 
-/* Табы */
 .guide-tabs {
     display: flex;
     gap: 10px;
     padding: 20px 28px;
     border-bottom: 2px solid #e2e8f0;
-    flex-wrap: wrap;
 }
 
 .tab-btn {
@@ -269,11 +318,9 @@ body {
     border-color: #22c55e;
 }
 
-/* Содержимое табов */
 .tab-content {
     display: none;
     padding: 24px 28px;
-    animation: fadeIn 0.4s ease;
 }
 
 .tab-content.active {
@@ -286,15 +333,9 @@ body {
     margin-bottom: 24px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Шаги подготовки */
 .guide-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
@@ -342,20 +383,9 @@ body {
     margin-bottom: 12px;
 }
 
-.step-card ul {
-    padding-left: 20px;
-}
-
-.step-card li {
-    margin: 6px 0;
-    color: #555;
-    font-size: 0.95rem;
-}
-
-/* Сетка материалов */
 .materials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
 
@@ -385,11 +415,6 @@ body {
     font-size: 1.1rem;
 }
 
-.acceptable-list,
-.unacceptable-list {
-    margin: 8px 0;
-}
-
 .tag {
     display: inline-block;
     padding: 5px 12px;
@@ -409,7 +434,6 @@ body {
     color: #991b1b;
 }
 
-/* Правила */
 .rules-list {
     display: flex;
     flex-direction: column;
@@ -444,10 +468,9 @@ body {
     line-height: 1.5;
 }
 
-/* Ошибки */
 .mistakes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
 
@@ -477,108 +500,14 @@ body {
     font-size: 1.1rem;
 }
 
-.mistake-card p {
-    color: #555;
-    line-height: 1.5;
-    font-size: 0.95rem;
-}
-
-/* ==================== АДАПТИВНОСТЬ ==================== */
-@media (max-width: 768px) {
-    .main-nav {
-        flex-direction: column;
-    }
-    
-    .nav-link {
-        text-align: center;
-        padding: 14px;
-    }
-    
-    .section-title,
-    .guide-header h2 {
-        font-size: 1.5rem;
-    }
-    
-    .guide-steps,
-    .materials-grid,
-    .mistakes-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .guide-tabs {
-        gap: 8px;
-    }
-    
-    .tab-btn {
-        padding: 8px 14px;
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 640px) {
-    body {
-        padding: 10px;
-    }
-    
-    .recycle-calculator,
-    .eco-guide {
-        border-radius: 20px;
-        padding: 20px;
-    }
-    
-    .calc-input {
-        padding: 12px;
-        font-size: 14px;
-    }
-    
-    .result-value {
-        font-size: 2.5rem;
-    }
-    
-    .step-number {
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
-        top: -14px;
-        left: -14px;
-    }
-    
-    .step-card {
-        padding: 24px 16px 16px 16px;
-    }
-    
-    .rule-item {
-        padding: 14px 16px;
-    }
-    
-    .rule-icon {
-        font-size: 24px;
-        min-width: 35px;
-    }
-}
-
-@media (max-width: 400px) {
-    .tab-btn {
-        padding: 6px 10px;
-        font-size: 11px;
-    }
-    
-    .tab-content {
-        padding: 16px;
-    }
-    
-    .calculator-result {
-        padding: 20px;
-    }
-}
-/* ==================== МОТИВАЦИЯ: НАГРАДЫ ==================== */
+/* Мотивация */
 .motivation-rewards {
     max-width: 1200px;
     width: 100%;
     background: white;
     border-radius: 30px;
     padding: 35px 25px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
@@ -587,19 +516,16 @@ body {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    flex-wrap: nowrap;
 }
 
-/* Контейнер переворота */
 .reward-flip {
     width: 160px;
     height: 160px;
     perspective: 800px;
-    flex-shrink: 1;
+    flex-shrink: 0;
     cursor: pointer;
 }
 
-/* Внутренний блок для анимации */
 .reward-inner {
     position: relative;
     width: 100%;
@@ -608,17 +534,10 @@ body {
     transform-style: preserve-3d;
 }
 
-/* Переворот при наведении (десктоп) */
 .reward-flip:hover .reward-inner {
     transform: rotateY(180deg);
 }
 
-/* Переворот при касании (мобильные) */
-.reward-flip:active .reward-inner {
-    transform: rotateY(180deg);
-}
-
-/* Лицевая и задняя стороны */
 .reward-front,
 .reward-back {
     position: absolute;
@@ -636,13 +555,11 @@ body {
     -webkit-backface-visibility: hidden;
 }
 
-/* Лицевая сторона */
 .reward-front {
     background: linear-gradient(135deg, #e8f5e8, #c8e6c8);
     border: 3px solid #2d8a2d;
 }
 
-/* Задняя сторона */
 .reward-back {
     background: linear-gradient(135deg, #1a5f1a, #2d8a2d);
     color: white;
@@ -659,43 +576,35 @@ body {
     color: #2d3748;
 }
 
-.reward-hint {
-    font-size: 0.6rem;
-    color: #718096;
-    background: white;
-    padding: 3px 10px;
-    border-radius: 20px;
-}
-
 .reward-text {
     font-weight: 700;
     font-size: 0.9rem;
     line-height: 1.3;
 }
 
-/* Адаптивность */
-@media (max-width: 1100px) {
-    .rewards-track {
-        flex-wrap: wrap;
-    }
+/* Футер */
+.main-footer {
+    background: linear-gradient(135deg, #1a3a1a, #1a5f1a);
+    padding: 30px 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    margin-top: 40px;
 }
 
-@media (max-width: 640px) {
-    .motivation-rewards {
-        padding: 25px 15px;
-        border-radius: 20px;
-    }
-    
-    .rewards-track {
-        gap: 10px;
-    }
-    
-    .reward-flip {
-        width: 140px;
-        height: 140px;
-    }
-    
-    .reward-emoji {
-        font-size: 2rem;
-    }
+.footer-quote {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-copy {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
 }
