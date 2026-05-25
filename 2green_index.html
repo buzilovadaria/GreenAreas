@@ -3,29 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Зеленые зоны Ижевска</title>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_ключ&lang=ru_RU&quot; type="text/javascript"></script>
+    <title>Калькулятор и Эко-справочник</title>
     <link rel="stylesheet" href="2green_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="map-container">
-        <div class="map-header">
-            <h2>Зеленые зоны Ижевска</h2>
-            <p>Интерактивная карта с возможностью приближения и перетаскивания</p>
+    <div class="site-wrapper">
+        <div class="geometric-bg"></div>
+
+        <!-- ШАПКА -->
+        <header class="main-header">
+            <div class="header-inner">
+                <nav class="header-nav">
+                    <a href="C:\Users\d.a.buzilova\Desktop\Бузилова Даша\Проект Зеленые зоны\2green_index.html" class="header-btn">🗺️ Карта</a>
+                    <a href="C:\Users\d.a.buzilova\Desktop\Бузилова Даша\Проект Зеленые зоны\3green_index.html" class="header-btn active">♻️ Калькулятор</a>
+                </nav>
+                <h1 class="site-title">🌿 Зеленые зоны Ижевска</h1>
+                <p class="site-subtitle">Оазисы природы в сердце города</p>
+                <a href="#sect3">Карточки с мотивацией</a>
+                <a href="#sect2">Эко-справочник</a>
+            </div>
+        </header>
+
+        <div class="content-container">
+
+            <!-- КАЛЬКУЛЯТОР -->
+            <section class="recycle-calculator">
+                <div class="section-header">
+                    <div class="section-icon">♻️</div>
+                    <h2 class="section-title">Калькулятор дохода от вторсырья</h2>
+                    <p class="section-subtitle">Узнайте, сколько можно заработать на сдаче отходов</p>
+                </div>
+                <div class="calculator-container">
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label class="input-label"><span class="material-icon">📄</span> Макулатура (кг)</label>
+                            <input type="number" id="paper-kg" class="calc-input" value="0" min="0" step="1">
+                            <div class="price-hint">~ 5 ₽/кг</div>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label"><span class="material-icon">🥤</span> ПЭТ-бутылки (кг)</label>
+                            <input type="number" id="pet-kg" class="calc-input" value="0" min="0" step="1">
+                            <div class="price-hint">~ 15 ₽/кг</div>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label"><span class="material-icon">🥫</span> Алюм. банки (кг)</label>
+                            <input type="number" id="aluminum-kg" class="calc-input" value="0" min="0" step="1">
+                            <div class="price-hint">~ 40 ₽/кг</div>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label"><span class="material-icon">🔋</span> Батарейки (шт.)</label>
+                            <input type="number" id="batteries-pcs" class="calc-input" value="0" min="0" step="1">
+                            <div class="price-hint">~ 0.5 ₽/шт.</div>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label"><span class="material-icon">🥛</span> Стекло (кг)</label>
+                            <input type="number" id="glass-kg" class="calc-input" value="0" min="0" step="1">
+                            <div class="price-hint">~ 3 ₽/кг</div>
+                        </div>
+                    </div>
+                    <div class="calculator-result">
+                        <div class="result-amount">
+                            <span class="result-label">💰 Доход:</span>
+                            <span class="result-value" id="total-amount">0</span>
+                            <span class="result-currency">₽</span>
+                        </div>
+                        <div class="eco-impact" id="eco-impact">🌱 Вы сохраните природу!</div>
+                        <button class="reset-btn" id="reset-calc">🔄 Очистить</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ЭКО-СПРАВОЧНИК -->1
+             <section id="sect2" class="eco-tip"></section>
+            <div class="eco-guide">
+                <div class="guide-header">
+                    <h2>📚 Эко-справочник</h2>
+                    <p>Как правильно подготовить и сдать вторсырье</p>
+                </div>
+                <div class="guide-tabs">
+                    <button class="tab-btn active" onclick="openTab(event, 'preparation')">🧹 Подготовка</button>
+                    <button class="tab-btn" onclick="openTab(event, 'materials')">📦 Материалы</button>
+                    <button class="tab-btn" onclick="openTab(event, 'rules')">✅ Правила</button>
+                    <button class="tab-btn" onclick="openTab(event, 'mistakes')">❌ Ошибки</button>
+                </div>
+                <div id="preparation" class="tab-content active">
+                    <h3>🧹 Как подготовить вторсырье</h3>
+                    <div class="guide-steps">
+                        <div class="step-card"><span class="step-number">1</span><h4>Очистите</h4><p>Промойте тару от остатков пищи.</p></div>
+                        <div class="step-card"><span class="step-number">2</span><h4>Высушите</h4><p>Мокрое сырье плесневеет.</p></div>
+                        <div class="step-card"><span class="step-number">3</span><h4>Спрессуйте</h4><p>Уменьшите объём.</p></div>
+                        <div class="step-card"><span class="step-number">4</span><h4>Рассортируйте</h4><p>Разные материалы — отдельно.</p></div>
+                        <div class="step-card"><span class="step-number">5</span><h4>Упакуйте</h4><p>Свяжите или сложите в мешки.</p></div>
+                    </div>
+                </div>
+                <div id="materials" class="tab-content">
+                    <h3>📦 Что принимают</h3>
+                    <div class="materials-grid">
+                        <div class="material-card"><div class="material-icon">📄</div><h4>Макулатура</h4><span class="tag green">✅ Газеты</span><span class="tag red">❌ Чеки</span></div>
+                        <div class="material-card"><div class="material-icon">🧴</div><h4>Пластик</h4><span class="tag green">✅ ПЭТ</span><span class="tag red">❌ ПВХ</span></div>
+                        <div class="material-card"><div class="material-icon">🥫</div><h4>Металл</h4><span class="tag green">✅ Банки</span><span class="tag red">❌ Баллончики</span></div>
+                        <div class="material-card"><div class="material-icon">🥛</div><h4>Стекло</h4><span class="tag green">✅ Бутылки</span><span class="tag red">❌ Зеркала</span></div>
+                    </div>
+                </div>
+                <div id="rules" class="tab-content">
+                    <h3>✅ Правила</h3>
+                    <div class="rules-list">
+                        <div class="rule-item"><span class="rule-icon">1️⃣</span><p>Сдавайте только то, что принимают</p></div>
+                        <div class="rule-item"><span class="rule-icon">2️⃣</span><p>Звоните для уточнения цен</p></div>
+                        <div class="rule-item"><span class="rule-icon">3️⃣</span><p>Сортируйте дома</p></div>
+                    </div>
+                </div>
+                <div id="mistakes" class="tab-content">
+                    <h3>❌ Ошибки</h3>
+                    <div class="mistakes-grid">
+                        <div class="mistake-card"><span class="mistake-icon">🚫</span><h4>Грязное сырье</h4></div>
+                        <div class="mistake-card"><span class="mistake-icon">🚫</span><h4>Смешанный пластик</h4></div>
+                        <div class="mistake-card"><span class="mistake-icon">🚫</span><h4>Чеки и салфетки</h4></div>
+                        <div class="mistake-card"><span class="mistake-icon">🚫</span><h4>Неснятые крышки</h4></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- МОТИВАЦИЯ -->
+             <section id="sect3" class="eco-tip"></section>
+            <section class="motivation-rewards">
+                <div class="section-header">
+                    <div class="section-icon">🍃</div>
+                    <h2 class="section-title">Во что превращается вторсырьё</h2>
+                </div>
+                <div class="rewards-track">
+                    <div class="reward-flip"><div class="reward-inner"><div class="reward-front"><span class="reward-emoji">📄</span><span class="reward-count">60 кг</span></div><div class="reward-back"><span class="reward-emoji">🌳</span><span class="reward-text">1 дерево</span></div></div></div>
+                    <div class="reward-flip"><div class="reward-inner"><div class="reward-front"><span class="reward-emoji">🧴</span><span class="reward-count">400 шт.</span></div><div class="reward-back"><span class="reward-emoji">👕</span><span class="reward-text">1 кофта</span></div></div></div>
+                    <div class="reward-flip"><div class="reward-inner"><div class="reward-front"><span class="reward-emoji">🥫</span><span class="reward-count">670 шт.</span></div><div class="reward-back"><span class="reward-emoji">🚲</span><span class="reward-text">1 велосипед</span></div></div></div>
+                    <div class="reward-flip"><div class="reward-inner"><div class="reward-front"><span class="reward-emoji">🥛</span><span class="reward-count">100 кг</span></div><div class="reward-back"><span class="reward-emoji">🍼</span><span class="reward-text">100 бутылок</span></div></div></div>
+                    <div class="reward-flip"><div class="reward-inner"><div class="reward-front"><span class="reward-emoji">🔋</span><span class="reward-count">1000 шт.</span></div><div class="reward-back"><span class="reward-emoji">🔩</span><span class="reward-text">20 кг металла</span></div></div></div>
+                    <div class="reward-flip"><div class="reward-inner"><div class="reward-front"><span class="reward-emoji">📦</span><span class="reward-count">1 тонна</span></div><div class="reward-back"><span class="reward-emoji">📚</span><span class="reward-text">750 кг бумаги</span></div></div></div>
+                </div>
+            </section>
         </div>
 
-        <div class="map-wrapper">
-            <div id="custom-map"></div>
-        </div>
-
-        <div class="map-footer">
-            <div class="address">
-                <span>📍 Ижевск, Удмуртия</span>
-            </div>
-            <div class="controls-note">
-                🖱️ Масштабируй | 📌 Тяни карту | 🔍 Кликай по маркерам
-            </div>
-        </div>
+        <!-- ФУТЕР -->
+        <footer class="main-footer">
+            <p class="footer-quote">🌱 «Природа — это не то, что мы унаследовали от предков, а то, что мы взяли в долг у потомков»</p>
+            <p class="footer-copy">© 2026 Зеленые зоны Ижевска | Сохраним природу вместе</p>
+        </footer>
     </div>
 
     <script src="2green_index.js"></script>
