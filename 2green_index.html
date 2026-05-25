@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
-<<<<<<< HEAD
     <div class="site-wrapper">
         <div class="geometric-bg"></div>
 
@@ -24,6 +23,8 @@
                 <!-- Название по центру -->
                 <h1 class="site-title">🌿 Зеленые зоны Ижевска</h1>
                 <p class="site-subtitle">Оазисы природы в сердце города</p>
+                <a href="#sec3">Эко-Совет дня</a>
+                <a href="#sec2">Популярные зоны</a>
             </div>
         </header>
         
@@ -35,86 +36,37 @@
             </div>
 
             <!-- КАРТА -->
-=======
-    <!-- Главный контейнер с фоновым геометрическим принтом -->
-    <div class="site-wrapper">
-        <div class="geometric-bg"></div>
-        
-        <div class="content-container">
-            <!-- ШАПКА САЙТА -->
-            <header class="main-header">
-                <div class="header-content">
-                    <h1 class="site-title">🌿 Зеленые зоны Ижевска</h1>
-                    <p class="site-subtitle">Откройте для себя оазисы природы в сердце города</p>
-                </div>
-            </header>
-
-            <!-- НАВИГАЦИЯ -->
-            <nav class="main-nav">
-                <a href="index.html" class="nav-link active">🗺️ Карта</a>
-                <a href="calculator.html" class="nav-link">♻️ Калькулятор и справочник</a>
-            </nav>
-
-            <!-- КРАТКИЙ ТЕКСТ О ВАЖНОСТИ ПРИРОДЫ -->
-            <section class="nature-importance">
-                <div class="importance-card">
-                    <div class="importance-icon">🌍</div>
-                    <h3>Природа в городе — наше общее будущее</h3>
-                    <p>Зеленые зоны Ижевска — это не просто места для прогулок. Это легкие нашего города, которые очищают воздух, снижают шум, создают комфортный микроклимат и дарят нам возможность отдыхать, не выезжая за пределы города. Сохраняя парки, скверы и бульвары, мы заботимся о своем здоровье и будущем следующих поколений. Каждое дерево — это вклад в чистый воздух, которым мы дышим каждый день.</p>
-                </div>
-            </section>
-
-            <!-- ИНТЕРАКТИВНАЯ КАРТА -->
->>>>>>> da903a4085bbc0f00cd4ba7fa6ad8a019d8cc9a6
+            
             <div class="map-container">
                 <div class="map-header">
                     <h2>🗺️ Исследуйте зеленые зоны на карте</h2>
-                    <p>Нажмите на маркер, чтобы узнать подробности</p>
+                    <p>Нажмите на маркер, чтобы узнать подробности. (синие маркеры -пункты приема вторсырья, зеленые - зеленые зоны)</p>
                 </div>
                 <div class="map-wrapper">
                     <div id="custom-map"></div>
                 </div>
                 <div class="map-footer">
-<<<<<<< HEAD
                     <div class="address"><span>📍 Ижевск, Удмуртия</span></div>
                     <div class="controls-note">🖱️ Масштабируй | 📌 Тяни карту | 🔍 Кликай по маркерам</div>
-=======
-                    <div class="address">
-                        <span>📍 Ижевск, Удмуртия</span>
-                    </div>
-                    <div class="controls-note">
-                        🖱️ Масштабируй | 📌 Тяни карту | 🔍 Кликай по маркерам
-                    </div>
->>>>>>> da903a4085bbc0f00cd4ba7fa6ad8a019d8cc9a6
                 </div>
             </div>
 
             <!-- КАРТОЧКИ ПОПУЛЯРНЫХ ЗОН -->
+             <section id="sec2" class="eco-tip"></section>
             <section class="popular-zones">
                 <div class="section-header">
                     <div class="section-icon">⭐</div>
                     <h2 class="section-title">Самые популярные зеленые зоны</h2>
                     <p class="section-subtitle">Места, которые любят жители Ижевска</p>
                 </div>
-<<<<<<< HEAD
                 <div class="cards-container" id="popular-cards"></div>
             </section>
 
             <!-- ЭКО-СОВЕТ ДНЯ -->
-=======
-                
-                <div class="cards-container" id="popular-cards">
-                    <!-- Карточки будут добавлены через JavaScript -->
-                </div>
-            </section>
-
-            <!-- ИНТЕРАКТИВНЫЙ БЛОК ЭКО-СОВЕТ ДНЯ -->
->>>>>>> da903a4085bbc0f00cd4ba7fa6ad8a019d8cc9a6
-            <section class="eco-tip">
+            <section id="sec3" class="eco-tip">
                 <div class="section-header">
                     <div class="section-icon">💡</div>
                     <h2 class="section-title">Эко-совет дня</h2>
-<<<<<<< HEAD
                 </div>
                 <div class="tip-container">
                     <div class="tip-icon">🌿</div>
@@ -122,32 +74,6 @@
                     <button class="tip-refresh" id="refresh-tip">🔄 Другой совет</button>
                 </div>
             </section>   
-=======
-                    <p class="section-subtitle">Маленькие шаги к большой экологии</p>
-                </div>
-                
-                <div class="tip-container" id="eco-tip-container">
-                    <div class="tip-icon">🌿</div>
-                    <div class="tip-content" id="tip-text">
-                        Загружаем совет дня...
-                    </div>
-                    <button class="tip-refresh" id="refresh-tip">🔄 Другой совет</button>
-                </div>
-            </section>
-
-            <!-- ФУТЕР -->
-            <footer class="main-footer">
-                <div class="footer-content">
-                    <div class="footer-quote">
-                        🌱 «Природа — это не то, что мы унаследовали от предков, 
-                        а то, что мы взяли в долг у потомков»
-                    </div>
-                    <div class="footer-copyright">
-                        © 2026 Зеленые зоны Ижевска | Сохраним природу вместе
-                    </div>
-                </div>
-            </footer>
->>>>>>> da903a4085bbc0f00cd4ba7fa6ad8a019d8cc9a6
         </div>
         
         <!-- ФУТЕР НА ВСЮ ШИРИНУ -->
@@ -158,10 +84,7 @@
     </div>
 
     <script src="2green_index.js"></script>
-<<<<<<< HEAD
     <script src="green_index.js"></script>
-=======
->>>>>>> da903a4085bbc0f00cd4ba7fa6ad8a019d8cc9a6
     
 </body>
 </html>
